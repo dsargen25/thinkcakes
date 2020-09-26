@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/alperg/project2-starter-auth.svg?branch=master)](https://travis-ci.com/alperg/project2-starter-auth)
+[![Build Status](https://travis-ci.com/arodrigu1/Project2.svg?branch=master)](https://travis-ci.com/arodrigu1/Project2)
 
 # Project 2 Starter with Auth
 

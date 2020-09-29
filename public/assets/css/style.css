@@ -45,6 +45,45 @@ body {
   width: 600px;
 }
 
+.postcontainer {
+  height: 400px;
+  width: 750px;
+  background: lightblue;
+  margin-left: 37px;
+  margin-right: 50px;
+}
+
+.postpic {
+  height: 120px;
+  width: 140px;
+  float: left;
+  margin: 10px;
+  border-style: solid;
+}
+
+.postinfo {
+  height: 120px;
+  width: 560px;
+  border-style: solid;
+  float: right;
+  margin: 10px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightgreen;
+  color: black;
+}
+
+.footer-content {
+  text-align: center;
+  margin: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
 [data-useremail="true"] {
   color: white !important;
 }

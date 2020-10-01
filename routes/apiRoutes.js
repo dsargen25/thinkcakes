@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
-const cakesdb = require('../controllers/cakeController');
+const cakesdb = require('../models/cakes.js');
 
 module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
@@ -22,6 +22,15 @@ module.exports = (passport, db) => {
   return router;
 };
 
-router.get('/api/cakes', function (req, res) {
+// Cake controller
+// Does this need to be wrapped as an exported module? Or should it be placed
+// in the above export?
+const CakeController = require('../controllers/cakeController')(cakesdb);
 
-});
+router.get('/api/cakes', CakeController.getAllCakes);
+router.get('/api/cakes/:id', CakeController.getSpecificCakes);
+router.get('/api/cakes/:id', CakeController.getUserCakes);
+router.post('/api/cakes', CakeController.createNewCake);
+router.delete('/api/cakes/:id', CakeController.deleteCakePost);
+
+// Comment controller

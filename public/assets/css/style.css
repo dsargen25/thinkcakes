@@ -3,6 +3,14 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%239C92AC' fill-opacity='0.59' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
+p, a {
+  font-family: "Cutive";
+}
+
+a {
+  font-size: .75em;
+}
+
 header {
   display: -ms-grid;
   display: grid;
@@ -47,6 +55,7 @@ header .header-box {
   display: grid;
   margin: auto;
   padding: 1em;
+  margin-bottom: 1em;
   width: 60%;
   min-width: 900px;
   background-color: white;

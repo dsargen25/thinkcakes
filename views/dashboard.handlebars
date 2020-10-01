@@ -24,14 +24,5 @@
       </div>
     </div>
   </main>
-
-    <div>
-      {{#if isloggedin}}
-        You are logged in as {{user.firstName}}
-        <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
-      {{else}}
-        <p>No user logged in.</p>
-      {{/if}}
-    </div>
-
+  
 {{> modal/login-block}}

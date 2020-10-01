@@ -10,7 +10,10 @@
       <div class="header-box"><a class="nav-link" href="/profile">My Profile</a> </div>
     </div>
     <div>
-      <div class="header-box"> <a class="nav-link" href="/logout">Logout</a> </div>
+      <div class="header-box"> 
+        You are logged in as {{user.firstName}}
+        <a class="nav-link" href="/logout">Logout</a> 
+      </div>
     </div>
     <div class="title-box">
       <h1>think cakes</h1>
@@ -32,7 +35,9 @@
       <div class="header-box"></div>
     </div>
     <div>
-      <div class="header-box"> <a class="nav-link login-button" href="#" id="login-modal">Login</a> </div>
+      <div class="header-box"> 
+        <a class="nav-link login-button" href="#" id="login-modal">Login</a> 
+      </div>
     </div>
     <div>
       <div class="header-box"> <a class="nav-link register-button" href="/register" data-register={{register}}>Register</a> </div>

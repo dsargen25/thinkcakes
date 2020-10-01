@@ -128,3 +128,25 @@ $('#login').on('click', function (event) {
     }
   });
 });
+
+// POST request to submit cakes into the database
+$('#add-cake').on('click', function (event) {
+  event.preventDefault();
+
+  const newCake = {
+    name: $('#name').val().trim(),
+    difficulty: $('#difficulty').val().trim(),
+    ingredients: $('#ingredients').val().trim()
+  };
+  console.log(newCake);
+  // Send the POST request to the database
+  $.ajax('/api/cakes', {
+    type: 'POST',
+    data: newCake
+  }).then(
+    function () {
+      console.log('New cake added!');
+      location.reload();
+    }
+  );
+});

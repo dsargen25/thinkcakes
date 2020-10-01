@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
-const cakesdb = require('../models/cakes.js');
+// const cakesdb = require('../models/cakes.js');
 
 module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
@@ -23,7 +23,7 @@ module.exports = (passport, db) => {
 };
 
 // Cake controller
-const CakeController = require('../controllers/cakeController')(cakesdb);
+const CakeController = require('../controllers/cakeController');
 
 // router.get('/api/cakes', CakeController.getAllCakes);
 // router.get('/api/cakes/:id', CakeController.getSpecificCakes);

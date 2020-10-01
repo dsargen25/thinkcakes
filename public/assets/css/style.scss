@@ -1,113 +1,134 @@
-body {
-  color: white;
-  background-size: cover;
-  height:100%
+@import url('https://fonts.googleapis.com/css?family=Cutive');
+
+body{
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%239C92AC' fill-opacity='0.59' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
-.jumbotron {
-  background: rgba(0,0,0,0);
+header{
+  display: grid;
+  grid-gap: 5px;
+  margin: 20px auto;
+  width: 60%;
+  min-width: 900px;
+  height: 200px;
+  padding: 1em;
+  background-color: white;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  & .title-box{
+    display: flex;
+
+    & h1{
+      align-self: flex-end;
+      color: rgb(63, 39, 0);
+      font-family: "Cutive";
+      font-size: 3em;
+    }
+  }
+
+  & .header-box{
+    background-color: white;
+    margin: auto;
+    width: 100%;
+    height: 50px;
+  }
 }
 
-.modal {
-  color: black;
+.home-previews{
+  display: grid;
+  margin: auto;
+  padding: 1em;
+  width: 60%;
+  min-width: 900px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+
+  & div{
+    background-color: lightgrey;
+    width: 90%;
+    padding: .75em;
+    margin: auto;
+
+    & .box{
+      display: block;
+      background-color: white;
+      width: 90%;
+      height: 300px;
+      margin: auto;
+    }
+
+    & .preview-text{
+      display: block;
+      background-color: white;
+      width: 90%;
+      height: 40px;
+      margin: auto;
+      margin-top: 10px;
+    }
+  }
 }
 
-.btn {
-  color:white;
-  background:#cadde1;
-  border: 1px solid white;
-}
+.profile-self{
+  display: grid;
+  margin: 1em auto;
+  padding: 1em;
+  width: 60%;
+  min-width: 900px;
 
-#user-form, .header-wrap, #create-form, .create-user-wrap {
-  padding: 20px;
-  border-radius: 15px;
-  margin: 20px 0;
-}
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  grid-template-areas:
+  "a b"
+  "c c";
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 500px auto;
+  grid-gap: 15px;
 
-#update-err-msg,
-#login-err-msg,
-#create-err-msg {
-  color: red !important;
-}
+  & .profile-upsecA{
+    grid-area: a;
+    background-color: lightgrey;
+  }
 
-#go-home {
- width: auto;
- height: 65px;
-}
+  & .profile-upsecB{
+    background-color: lightgrey;
+    grid-area: b;
+  }
 
-.container {
-  padding-bottom: 2%;
-  margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
-  height:100%;
-  border-radius: .25rem;
-  margin-bottom: 2%;
-  width: 600px;
-}
+  & .profile-lowsec{
+    grid-area: c;
+    background-color: lightgrey;
 
-.postcontainer {
-  height: 400px;
-  width: 750px;
-  background: lightblue;
-  margin-left: 37px;
-  margin-right: 50px;
-}
+    & .comments-section{
+      margin: auto;
+      background-color: lightgrey;
+      width: 95%;
+      padding: 1em;
 
-.postpic {
-  height: 120px;
-  width: 140px;
-  float: left;
-  margin: 10px;
-  border-style: solid;
-}
+      & .comments{
+        margin: 10px auto;
+        width: 90%;
+        height: 60px;
+        background-color: white;
+      }
+    }
+  }
 
-.postinfo {
-  height: 120px;
-  width: 560px;
-  border-style: solid;
-  float: right;
-  margin: 10px;
-}
+  & .profile-box{
+    margin: 1em auto;
+    width: 85%;
+    height: 200px;
+    background-color: white;
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: lightgreen;
-  color: black;
-}
+    & .profile-img{}
+    & .profile-name{}
+    & .profile-stats{}
+    & .profile-bio{}
+  }
 
-.footer-content {
-  text-align: center;
-  margin: 10px;
-  font-family: "Times New Roman", Times, serif;
-}
-
-[data-useremail="true"] {
-  color: white !important;
-}
-[data-register="true"] {
-  color: white !important;
-}
-
-.lead {
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
-.userId h2, .header-wrap h1 {
-  text-transform: capitalize;
-}
-
-hr {
-  background-color: #fff !important;
-}
-
-.list-group-item {
-  line-height: 2.5;
-}
-
-.card-body {
-  color: #444;
 }

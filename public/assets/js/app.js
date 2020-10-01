@@ -105,6 +105,11 @@ $('#login-modal').on('click', function (event) {
   $('#user-info').modal('show');
 });
 
+$('#submission-modal').on('click', function (event) {
+  event.preventDefault();
+  $('#submit-recipe').modal('show');
+});
+
 $('#go-home').on('click', function (event) {
   event.preventDefault();
   window.location.href = '/';

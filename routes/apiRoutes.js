@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
-const cakesdb = require('../models/cakes.js');
+// const cakesdb = require('../models/cakes.js');
 
 module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
@@ -23,14 +23,64 @@ module.exports = (passport, db) => {
 };
 
 // Cake controller
-// Does this need to be wrapped as an exported module? Or should it be placed
-// in the above export?
-const CakeController = require('../controllers/cakeController')(cakesdb);
+const CakeController = require('../controllers/cakeController');
 
-router.get('/api/cakes', CakeController.getAllCakes);
-router.get('/api/cakes/:id', CakeController.getSpecificCakes);
-router.get('/api/cakes/:id', CakeController.getUserCakes);
-router.post('/api/cakes', CakeController.createNewCake);
-router.delete('/api/cakes/:id', CakeController.deleteCakePost);
+// router.get('/api/cakes', CakeController.getAllCakes);
+// router.get('/api/cakes/:id', CakeController.getSpecificCakes);
+// router.get('/api/cakes/:id', CakeController.getUserCakes);
+// router.post('/api/cakes', CakeController.createNewCake);
+// router.delete('/api/cakes/:id', CakeController.deleteCakePost);
 
-// Comment controller
+// Added console log to make sure each of the routes work as intended
+// for initial testing.
+
+// Cake Routes
+router.get('/api/cakes', function (req, res) {
+  CakeController.getAllCakes(function (result) {
+    console.log({ Cakes: result });
+  });
+});
+router.get('/api/cakes/:id', function (req, res) {
+  CakeController.getSpecificCakes(function (result) {
+    console.log({ Cakes: result });
+  });
+});
+router.get('/api/cakes/:id', function (req, res) {
+  CakeController.getUserCakes(function (result) {
+    console.log({ Cakes: result });
+  });
+});
+router.post('/api/cakes', function (req, res) {
+  CakeController.createNewCake(function (result) {
+    console.log({ Cakes: result });
+    console.log('New cake has been added to the database!');
+  });
+});
+router.delete('/api/cakes/:id', function (req, res) {
+  CakeController.deleteCakePost(function () {
+    console.log('Cake entry has been deleted!');
+  });
+});
+
+// Comment Routes
+router.get('/api/comments', function (req, res) {
+  CakeController.getCakeComments(function (result) {
+    console.log({ Comments: result });
+  });
+});
+router.get('/api/comments/:id', function (req, res) {
+  CakeController.getUserComments(function (result) {
+    console.log({ Comments: result });
+  });
+});
+router.post('/api/comments', function (req, res) {
+  CakeController.createNewComment(function (result) {
+    console.log({ Comments: result });
+    console.log('New comment has been added!');
+  });
+});
+router.delete('/api/comments/:id', function (req, res) {
+  CakeController.deleteComment(function () {
+    console.log('Comment has been deleted!');
+  });
+});

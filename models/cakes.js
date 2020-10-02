@@ -2,6 +2,11 @@ module.exports = function (sequelize, DataTypes) {
   const Cakes = sequelize.define('Cakes', {
     // text: DataTypes.STRING,
     // description: DataTypes.TEXT
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
     name: {
       type: DataTypes.STRING
     },

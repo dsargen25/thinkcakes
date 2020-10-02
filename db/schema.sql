@@ -22,7 +22,7 @@ CREATE TABLE Cakes (
 CREATE TABLE Comments (
   id int(11) AUTO_INCREMENT NOT NULL,
   title varchar(30),
-  body varchar(30) NOT NULL,
+  body varchar(500) NOT NULL,
   likes boolean,
   PRIMARY KEY (id)
 );

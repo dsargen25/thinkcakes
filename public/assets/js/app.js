@@ -155,3 +155,47 @@ $('#add-cake').on('click', function (event) {
     }
   );
 });
+
+// DELETE
+// Delete cake
+
+$('#delete-cake').on('click', function (event) {
+  event.preventDefault();
+  const deleteCake = {
+    name: $('#name').val().trim(),
+    difficulty: $('#difficulty').val().trim(),
+    ingredients: $('#ingredients').val().trim()
+  };
+  console.log(deleteCake);
+  $.ajax({
+    type: 'DELETE',
+    // need id to reference
+    url: '/api/Cakes',
+    data: deleteCake
+  }).then(
+    function () {
+      (console.log('Cake deleted'));
+      location.reload();
+    });
+});
+
+// Delete comment
+$('#delete-comment').on('click', function (event) {
+  event.preventDefault();
+  const deleteComment = {
+    title: $('#title').val().trim(),
+    body: $('#body').val().trim(),
+    likes: $('#likes').val().trim()
+  };
+  console.log(deleteComment);
+  $.ajax({
+    type: 'DELETE',
+    // need id to reference
+    url: '/api/Cakes',
+    data: deleteComment
+  }).then(
+    function () {
+      (console.log('Comment deleted'));
+      location.reload();
+    });
+});

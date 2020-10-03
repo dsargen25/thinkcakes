@@ -28,6 +28,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
+    Comments.belongsTo(models.Cakes, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
   return Comments;
 };

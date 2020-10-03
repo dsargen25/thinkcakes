@@ -15,13 +15,22 @@ module.exports = function (sequelize, DataTypes) {
     },
     ingredients: {
       type: DataTypes.TEXT
+    },
+    createdAt: {
+      field: 'created_at',
+      type: DataTypes.DATE
+    },
+    updatedAt: {
+      field: 'updated_at',
+      type: DataTypes.DATE
     }
   });
 
   Cakes.associate = function (models) {
     Cakes.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
+        name: 'userName'
+        // allowNull: false
       }
     });
   };

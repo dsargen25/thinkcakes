@@ -3,17 +3,14 @@
   <main>
     <div class="profile-self">
       <div class="profile-upsecA">
-        <div class="profile-img">
-          <div class="profile-box"> </div>
-        </div>
-        <div class="profile-name">
-          <div class="profile-box"></div>
-        </div>
+        <div class="profile-img"></div>
+        <div class="profile-contributions"></div>
       </div>
 
       <div class="profile-upsecB">
         <div class="profile-stats">
            <form id="user-form">
+
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputFirst">First Name</label>
@@ -36,6 +33,11 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">About Me: </label><br>
+                <textarea class="form-control" id="profile-bio" rows="3"></textarea>
+              </div>
+
               <div>
                 <button type="submit" id="update-user" data-id="{{userInfo.id}}" class="btn btn-primary">Update</button>
                 {{#unless userInfo.isAdmin}}
@@ -43,26 +45,17 @@
                 {{/unless}}
                 <button type="submit" id="view-user" data-id="{{userInfo.id}}" class="btn btn-primary">Refresh</button>
               </div>
+
           </form>
-        </div>
-        <div class="profile-bio">
-          <div class="profile-box"></div>
         </div>
       </div>
 
       <div class="profile-lowsec">
         <div class="comments-section">
-          <div class="comments">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, veritatis.</p>
-          </div>
-          <div class="comments">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, veritatis.</p>
-          </div>
-          <div class="comments">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, veritatis.</p>
-          </div>
-          <div class="comments">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, veritatis.</p>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Add a Comment: </label><br>
+            <textarea class="form-control" id="profile-comment-add" rows="2"></textarea>
+            <button type="submit" id="submit-comment" class="btn btn-primary">Submit</button>
           </div>
           <div class="comments">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, veritatis.</p>

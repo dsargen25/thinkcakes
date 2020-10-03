@@ -56,6 +56,19 @@ module.exports = (db) => {
     }
   });
 
+  //Load Cake Page
+  router.get('/cake-page', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('cake-page', user);
+    } else {
+      res.render('cake-page');
+    }
+  });
+
   // Load example index page
   router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {

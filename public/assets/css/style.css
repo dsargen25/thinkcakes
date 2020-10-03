@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Cutive");
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+* {
+  font-family: "Varela Round";
+}
+
 body {
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%239C92AC' fill-opacity='0.59' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-color: #ffa1fd;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 20 20'%3E%3Cg %3E%3Cpolygon fill='%23e691e4' points='20 10 10 0 0 0 20 20'/%3E%3Cpolygon fill='%23e691e4' points='0 10 0 20 10 20'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-p, a {
+h1 {
   font-family: "Cutive";
-}
-
-a {
-  font-size: .75em;
 }
 
 header {
@@ -16,8 +18,7 @@ header {
   display: grid;
   grid-gap: 5px;
   margin: 20px auto;
-  width: 60%;
-  min-width: 900px;
+  width: 900px;
   height: 200px;
   padding: 1em;
   background-color: white;
@@ -44,10 +45,26 @@ header .title-box h1 {
 }
 
 header .header-box {
-  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: auto;
   width: 100%;
+}
+
+header .header-box .header-button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: lightgrey;
+  font-family: "Varela Round";
+  width: 100px;
   height: 50px;
+  text-align: center;
+  border-radius: .5em;
 }
 
 .home-previews {
@@ -56,8 +73,7 @@ header .header-box {
   margin: auto;
   padding: 1em;
   margin-bottom: 1em;
-  width: 60%;
-  min-width: 900px;
+  width: 900px;
   background-color: white;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -97,8 +113,7 @@ header .header-box {
   display: grid;
   margin: 1em auto;
   padding: 1em;
-  width: 60%;
-  min-width: 900px;
+  width: 900px;
   background-color: white;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -107,8 +122,8 @@ header .header-box {
       grid-template-areas: "a b" "c c";
   -ms-grid-columns: 1fr 3fr;
       grid-template-columns: 1fr 3fr;
-  -ms-grid-rows: 500px auto;
-      grid-template-rows: 500px auto;
+  -ms-grid-rows: 350px auto;
+      grid-template-rows: 350px auto;
   grid-gap: 15px;
 }
 
@@ -124,6 +139,10 @@ header .header-box {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: b;
+}
+
+.profile-self .profile-upsecB .profile-stats {
+  margin: 1em;
 }
 
 .profile-self .profile-lowsec {
@@ -143,15 +162,156 @@ header .header-box {
 
 .profile-self .profile-lowsec .comments-section .comments {
   margin: 10px auto;
-  width: 90%;
+  width: 100%;
   height: 60px;
+  border-radius: .3em;
   background-color: white;
 }
 
 .profile-self .profile-box {
   margin: 1em auto;
   width: 85%;
-  height: 200px;
+  height: 100px;
   background-color: white;
+}
+
+.cake-page {
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  margin: auto;
+  padding: 1em;
+  margin-top: 7em;
+  margin-bottom: 1em;
+  width: 900px;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      grid-template-areas: "d s" "c c";
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  -ms-grid-rows: 600px auto;
+      grid-template-rows: 600px auto;
+  grid-gap: 15px;
+}
+
+.cake-top-section {
+  display: block;
+  z-index: 2;
+  position: absolute;
+  margin: 0 auto;
+  height: 200px;
+  width: 930px;
+  top: -70px;
+  right: -20px;
+}
+
+.cake-image {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background-color: lightblue;
+  width: 190px;
+  height: 190px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cake-title {
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+  background-color: grey;
+  width: 800px;
+  height: 90px;
+  border-radius: 3em;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cake-details {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: d;
+  background-color: lightgrey;
+  height: 100%;
+}
+
+.cake-stats {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: s;
+  background-color: lightgrey;
+  height: 100%;
+}
+
+.cake-comments {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: c;
+  background-color: lightgrey;
+}
+
+.cake-comments .form-group {
+  padding: 1em;
+}
+
+.cake-comments .comments {
+  margin: 10px auto;
+  width: 96%;
+  height: 60px;
+  border-radius: .3em;
+  background-color: white;
+  padding: 1em;
+}
+
+.form-group {
+  font-family: "Varela Round";
+}
+
+.modal-title {
+  font-family: "Varela Round";
+}
+
+.header-box {
+  font-family: "Varela Round";
+}
+
+@media only screen and (max-width: 942px) {
+  header {
+    width: 90%;
+  }
+  .home-previews {
+    width: 90%;
+  }
+  .profile-self {
+    width: 90%;
+  }
+  .cake-page {
+    width: 90%;
+  }
+  .cake-top-section {
+    display: block;
+    z-index: 2;
+    position: absolute;
+    margin: 0 auto;
+    height: 200px;
+    width: 100%;
+    top: -70px;
+    right: -20px;
+  }
+  .cake-title {
+    left: -30px;
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

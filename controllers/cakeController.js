@@ -1,3 +1,6 @@
+const Cakes = require('../models/cakes');
+const Users = require('../models/user');
+
 module.exports = function (cakesdb) {
   return {
     // get all cakes table and column names subject to change
@@ -21,16 +24,35 @@ module.exports = function (cakesdb) {
     // get all comments from comment table about specific cake
     getCakeComments: function (req, res) {
       // this needs a join
-      cakesdb.Comments.findAll({ where: { body: req.body.body } }).then(function (comments) {
+      cakesdb.Comments.findAll({
+        where: {
+          $or: [
+            { '$Cakes.id$': 'Comments.id$' },
+            {}
+          ]
+        },
+        include: {
+          model: Cakes
+        }
+      }).then(function (comments) {
         res.json(comments);
       });
     },
     // get user submitted comments column titles subject to change
     getUserComments: function (req, res) {
       // this needs a join
-      cakesdb.Cakes.findAll({ where: { body: req.body.comments } }).then(function (comments) {
+      cakesdb.Comments.findAll({
+        where: {
+          $or: [
+            { '$Comments.id$': 'User.id$' },
+            {}
+          ]
+        },
+        include: {
+          model: Users
+        }
+      }).then(function (comments) {
         res.json(comments);
-        // comments isnt a column until the join
       });
     },
     // create a new cake post

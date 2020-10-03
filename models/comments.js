@@ -1,5 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
   const Comments = sequelize.define('Comments', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,7 +19,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     likes: {
       type: DataTypes.BOOLEAN
-
     }
   });
 

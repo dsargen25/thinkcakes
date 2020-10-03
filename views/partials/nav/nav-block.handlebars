@@ -1,18 +1,29 @@
 <header>
   {{#if isloggedin}}
     <div>
-      <div class="header-box"> <a class="nav-link" href="/">Home</a> </div>
+      <div class="header-box"> 
+        <div class="header-button">
+          <a class="nav-link" href="/">Home</a>
+        </div>
+      </div>
     </div>
     <div>
-      <div class="header-box"></div>
+      <div class="header-box">
+        <div class="header-button">
+          <a class="nav-link" href="/profile">My Profile</a> 
+        </div>
+      </div>
     </div>
     <div>
-      <div class="header-box"><a class="nav-link" href="/profile">My Profile</a> </div>
+      <div class="header-box">
+         You are logged in as {{user.firstName}}
+      </div>
     </div>
     <div>
       <div class="header-box"> 
-        You are logged in as {{user.firstName}}
-        <a class="nav-link" href="/logout">Logout</a> 
+        <div class="header-button">
+          <a class="nav-link" href="/logout">Logout</a> 
+        </div>
       </div>
     </div>
     <div class="title-box">
@@ -25,22 +36,34 @@
       <div class="header-box"></div>
     </div>
     <div>
-      <div class="header-box"><a class="nav-link submit-recipe-button" href="#" id="submission-modal">Submit a Recipe</a></div>
+      <div class="header-box">
+        <div class="header-button">
+          <a class="nav-link submit-recipe-button" href="#" id="submission-modal">Submit a Recipe</a>
+        </div>
+      </div>
     </div>
   {{else}}
     <div>
       <div class="header-box"></div>
     </div>
     <div>
-      <div class="header-box"></div>
-    </div>
-    <div>
-      <div class="header-box"> 
-        <a class="nav-link login-button" href="#" id="login-modal">Login</a> 
+      <div class="header-box">
+        
       </div>
     </div>
     <div>
-      <div class="header-box"> <a class="nav-link register-button" href="/register" data-register={{register}}>Register</a> </div>
+      <div class="header-box"> 
+        <div class="header-button">
+          <a class="nav-link login-button" href="#" id="login-modal">Login</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="header-box"> 
+        <div class="header-button">
+          <a class="nav-link register-button" href="/register" data-register={{register}}>Register</a>
+        </div>
+      </div>
     </div>
     <div class="title-box">
       <h1>think cakes</h1>

@@ -139,9 +139,9 @@ $('#add-cake').on('click', function (event) {
   event.preventDefault();
 
   const newCake = {
-    name: $('#name').val().trim(),
-    difficulty: $('#difficulty').val().trim(),
-    ingredients: $('#ingredients').val().trim()
+    name: $('#cake-name').val().trim(),
+    difficulty: $('#cake-difficulty').val().trim(),
+    ingredients: $('#cake-ingredients').val().trim()
   };
   console.log(newCake);
   // Send the POST request to the database
@@ -198,4 +198,8 @@ $('#delete-comment').on('click', function (event) {
       (console.log('Comment deleted'));
       location.reload();
     });
+});
+
+$('.cake-preview').click(function(event){
+  window.location.href='/cake-page';
 });

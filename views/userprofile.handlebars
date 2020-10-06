@@ -1,0 +1,85 @@
+{{> nav/nav-block user=true register=false}}
+
+  <main>
+    <div class="profile-self">
+      <div class="profile-upsecA">
+        <div class="profile-img"></div>
+        <div class="profile-contributions"></div>
+      </div>
+
+      <div class="profile-upsecB">
+        <div class="profile-stats">
+
+              <div class="row">
+                <div class="group col-md-6">
+                  <p>{{userInfo.firstName}}</p>
+                </div>
+                <div class="group col-md-6">
+                  <p>{{userInfo.lastName}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="group col-md-6">
+                  <p>{{userInfo.email}}</p>
+                </div>
+              </div>
+
+              <div class="group aboutme-section">
+                <label>About Me: </label><br>
+                <p>"{{userInfo.aboutme}}"</p>
+              </div>
+        </div>
+      </div>
+
+      <div class="profile-lowsec">
+        <form>
+          <div class="comments-section">
+            <div class="comments">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, veritatis.</p>
+            </div>
+            <div class="form-group comment-submit">
+              <label for="exampleFormControlTextarea1">Add a Comment: </label><br>
+              <textarea class="form-control" id="profile-comment-add" rows="2"></textarea>
+              <button type="submit" id="submit-comment" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+
+  <div class="modal" id="delete-user-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Re-Enter Credentials to delete user</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <h3 id="err-msg"></h3>
+          <form>
+            <div class="form-group">
+              <label for="userEmail">Email:</label>
+              <input type="text" class="form-control" id="userEmail">
+            </div>
+            <div class="form-group">
+              <label for="userPassword">Password:</label>
+              <input type="password" class="form-control" id="userPassword">
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button id="confirm-delete" type="button" data-id="{{userInfo.id}}" class="btn btn-primary">Confirm Delete</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Nah I'll stay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

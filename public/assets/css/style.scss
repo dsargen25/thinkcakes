@@ -6,8 +6,7 @@
 }
 
 body{
-  background-color: #ffa1fd;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 20 20'%3E%3Cg %3E%3Cpolygon fill='%23e691e4' points='20 10 10 0 0 0 20 20'/%3E%3Cpolygon fill='%23e691e4' points='0 10 0 20 10 20'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #F7E7E6;
 }
 
 h1{
@@ -21,7 +20,7 @@ header{
   width: 900px;
   height: 200px;
   padding: 1em;
-  background-color: white;
+  background-color: #fff9f0;
   grid-template-columns: 4fr 1fr 1fr 1fr;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -45,12 +44,16 @@ header{
 
     & .header-button{
       align-self: center;
-      background-color: lightgrey;
+      background-color: rgb(63, 39, 0);
       font-family: "Varela Round";
       width: 100px;
-      height: 50px;
       text-align: center;
       border-radius: .5em;
+      
+      & a{
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 }
@@ -61,21 +64,21 @@ header{
   padding: 1em;
   margin-bottom: 1em;
   width: 900px;
-  background-color: white;
+  background-color:  #fff9f0;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 15px;
 
   & div{
-    background-color: lightgrey;
+    background-color:  white;
     width: 90%;
     padding: .75em;
     margin: auto;
 
     & .box{
       display: block;
-      background-color: white;
+      background-color:  #fff9f0;
       width: 90%;
       height: 300px;
       margin: auto;
@@ -83,7 +86,7 @@ header{
 
     & .preview-text{
       display: block;
-      background-color: white;
+      background-color:  #fff9f0;
       width: 90%;
       height: 40px;
       margin: auto;
@@ -98,23 +101,23 @@ header{
   padding: 1em;
   width: 900px;
 
-  background-color: white;
+  background-color:  #fff9f0;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   grid-template-areas:
   "a b"
   "c c";
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: 350px auto;
+  grid-template-rows: 500px auto;
   grid-gap: 15px;
 
   & .profile-upsecA{
     grid-area: a;
-    background-color: lightgrey;
+    background-color:  #fff9f0;
   }
 
   & .profile-upsecB{
-    background-color: lightgrey;
+    background-color:  #fff9f0;
     grid-area: b;
 
     & .profile-stats{
@@ -124,20 +127,30 @@ header{
 
   & .profile-lowsec{
     grid-area: c;
-    background-color: lightgrey;
+    background-color:  #fff9f0;
 
     & .comments-section{
       margin: auto;
-      background-color: lightgrey;
+      background-color:  #fff9f0;
       width: 95%;
       padding: 1em;
 
+      & .comment-submit{
+        padding: 1em 0;
+
+        & #submit-comment{
+          float: right;
+          margin: 1em 0;
+        }
+      }
+
       & .comments{
+        clear: both;
         margin: 10px auto;
         width: 100%;
         height: 60px;
         border-radius: .3em;
-        background-color: white;
+        background-color:  #fff9f0;
       }
     }
   }
@@ -146,10 +159,13 @@ header{
     margin: 1em auto;
     width: 85%;
     height: 100px;
-    background-color: white;
+    background-color:  #fff9f0;
   }
 }
 
+.profile-img img{
+  width: 200px;
+}
 
 .cake-page{
   display: grid;
@@ -159,7 +175,7 @@ header{
   margin-top: 7em;
   margin-bottom: 1em;
   width: 900px;
-  background-color: white;
+  background-color:  #fff9f0;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   grid-template-areas:
@@ -208,19 +224,22 @@ header{
 
 .cake-details{
   grid-area: d;
-  background-color: lightgrey;
+  padding-top: 150px;
+  background-color:  #fff9f0;
   height: 100%;
 }
 
 .cake-stats{
   grid-area: s;
-  background-color: lightgrey;
+  text-align: right;
+  padding-top: 150px;
+  background-color:  #fff9f0;
   height: 100%;
 }
 
 .cake-comments{
   grid-area: c;
-  background-color: lightgrey;
+  background-color:  #fff9f0;
 
   & .form-group{
     padding: 1em;
@@ -231,12 +250,47 @@ header{
     width: 96%;
     height: 60px;
     border-radius: .3em;
-    background-color: white;
+    background-color:  #fff9f0;
     padding: 1em;
   }
 }
 
+.cake-submission-container{
+  margin: 1em auto;
+  background-color:  #fff9f0;
+  width: 900px;
+  padding: 1em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.register-container{
+  margin: 1em auto;
+  background-color:  #fff9f0;
+  width: 900px;
+  padding: 1em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  & .register-title-section{
+    padding: 1em 0;
+    padding-bottom: 2em;
+  }
+
+  & h1{
+    font-size: 1.5em;
+  }
+
+  & h1, h3{
+    font-family: "Varela Round";
+  }
+}
+
 //Need to Fix: 
+
+.modal{
+  font-family: "Varela Round";
+}
 
 .form-group{
   font-family: "Varela Round";
@@ -250,7 +304,32 @@ header{
   font-family: "Varela Round";
 }
 
+.hidden-form, .imgbb-container{
+  display: none;
+}
+
+#image-preview{
+  object-fit: cover;
+  height: 150px;
+  margin: 1em 0;
+}
+
+#profile-image-file{
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+  margin: 1em 0;
+}
+
+.ingredient-entry, .instruction-entry{
+  padding: 1em 0;
+}
+
 @media only screen and (max-width: 942px) {
+
+  body{
+    min-width: 300px;
+  }
 
   header{
     width: 90%;
@@ -260,12 +339,19 @@ header{
     width: 90%;
   }
 
-
   .profile-self{
     width: 90%;
   }
 
   .cake-page{
+    width: 90%;
+  }
+
+  .cake-submission-container{
+    width: 90%;
+  }
+
+  .register-container{
     width: 90%;
   }
   

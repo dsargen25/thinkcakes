@@ -1,3 +1,22 @@
+// BASIC NAVIGATION CONTENTS ---------------------------------------------------------------------------------------------------------------------------
+
+// LINK TO GO HOME
+
+$('#go-home').on('click', function (event) {
+  event.preventDefault();
+  window.location.href = '/';
+});
+
+// REGISTER & LOGGING IN CONTENTS ---------------------------------------------------------------------------------------------------------------------------
+
+// LINK TO GO TO REGISTER PAGE
+
+$('#register').on('click', function (event) {
+  event.preventDefault();
+  window.location.href = '/register';
+});
+
+// USER SUBMITS REGISTRATION AND ACCOUNT CREATION
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
@@ -22,21 +41,97 @@ $('#add-user').on('click', function (event) {
   }
 });
 
+// LINK TO OPEN LOG IN MODAL
+
+$('#login-modal').on('click', function (event) {
+  event.preventDefault();
+  $('#user-info').modal('show');
+});
+
+// WHEN USER HITS SUBMIT ON LOG IN MODAL
+
+$('#login').on('click', function (event) {
+  event.preventDefault();
+
+  const user = {
+    email: $('#email').val().trim(),
+    password: $('#user_password').val().trim()
+  };
+
+  $.post('/api/login', user, (result) => {
+    // console.log(result);
+    if (result.loggedIn) {
+      $(document.location).attr('href', '/dashboard');
+    } else {
+      $('#login-err-msg').empty('').text(result.error);
+      $('#user-info').modal('hide');
+    }
+  });
+});
+
+// PROFILE CONTENTS ---------------------------------------------------------------------------------------------------------------------------
+
+// UPDATE ABOUT ME TEXTAREA
+$('#update-aboutme').click(function (event) {
+  event.preventDefault();
+  const aboutmeSection = $('.aboutme-section');
+  const aboutmeTextarea = $('<textarea>');
+  aboutmeTextarea.addClass('aboutme-textarea');
+  aboutmeTextarea.addClass('form-control');
+  aboutmeTextarea.appendTo(aboutmeSection);
+  $('#update-aboutme').attr('disabled', true);
+});
+
+// ADD A PROFILE COMMENT
+// $('#update-aboutme').click(function (event) {
+//   event.preventDefault();
+//   const myprofilecommentSection = $('.comment-submit');
+//   const aboutmeTextarea = $('<textarea>');
+//   aboutmeTextarea.addClass('aboutme-textarea');
+//   aboutmeTextarea.addClass('form-control');
+//   aboutmeTextarea.appendTo(aboutmeSection);
+//   $('#update-aboutme').attr('disabled', true);
+// });
+
+// RUNS IMGBB TO UPLOAD PROFILE PICTURE
+
+$('#change-profile-image').click(function (event) {
+  event.preventDefault();
+  $('.imgbb-button').click();
+});
+
+// PARSE URL AND ADD PFOFILE PICTURE PREVIEW
+
+$('#profile-picture-url').on('input', function (event) {
+  event.preventDefault();
+  const profileurlFull = $('#profile-picture-url').val();
+  let shortenedProfileurl = profileurlFull.slice(43);
+  shortenedProfileurl = shortenedProfileurl.split('"')[0];
+  $('#profile-picture-url').val(shortenedProfileurl);
+  const profileFile = $('#profile-image-file');
+  profileFile.attr('src', shortenedProfileurl);
+  $('#profile-picture-url').val('');
+});
+
+// UPDATE USER INFORMATION
+
 $('#update-user').on('click', function (event) {
   event.preventDefault();
 
   const id = $(this).data('id');
 
-  // capture All changes
   const changeUser = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    password: $('#inputPassword').val().trim(),
+    profileurl: $('#profile-picture-url').attr('src')
   };
   $('#err-msg').empty('');
   // $('#change-user-modal').modal('show');
   console.log(changeUser);
+
+  // THIS ONLY EDITS IF THE USER ENTERS THEIR PASSWORD
 
   if (changeUser.password.length > 0 && changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.lastName.length > 0 && changeUser.firstName.length > 0) {
     $.ajax({
@@ -50,16 +145,18 @@ $('#update-user').on('click', function (event) {
     });
   } else {
     console.log('**Please fill out entire form**');
-    $('#update-err-msg').empty('').text('**Please fill out entire form**');
+    $('#update-err-msg').empty('').text('**Please fill out entire form**'); // ADD MODAL OR RED ERROR TEXT FOR THIS
   }
 });
 
-// DELETE   ***************************************************
+// OPENS DELETE ACCOUNT MODAL
 $('#delete-user').on('click', function (event) {
   event.preventDefault();
   $('#err-msg').empty('');
   $('#delete-user-modal').modal('show');
 });
+
+// CONFIRMING ACCOUNT DELETION ON DELETE ACCOUNT MODAL
 
 $('#confirm-delete').on('click', function (event) {
   event.preventDefault();
@@ -95,56 +192,130 @@ $('#confirm-delete').on('click', function (event) {
   }
 });
 
-$('#register').on('click', function (event) {
-  event.preventDefault();
-  window.location.href = '/register';
-});
+// CAKE SUBMISSION CONTENTS ---------------------------------------------------------------------------------------------------------------------------
 
-$('#login-modal').on('click', function (event) {
-  event.preventDefault();
-  $('#user-info').modal('show');
-});
+// LINK TO GO TO SUBMIT CAKE PAGE (UNFINISHED, NEED TO CHANGE ID TO REMOVE "MODAL")
 
 $('#submission-modal').on('click', function (event) {
   event.preventDefault();
-  $('#submit-recipe').modal('show');
+  window.location.href = '/submit-cake';
 });
 
-$('#go-home').on('click', function (event) {
+// ADDS INSTRUCTION TEXTAREAS UP UNTIL 15 ENTRIES
+
+let instructionAmt = 0;
+$('#add-instruction').click(function (event) {
   event.preventDefault();
-  window.location.href = '/';
+  if (instructionAmt >= 15) {
+    return;
+  }
+  const instructionSection = $('#instruction-section');
+  const instructionEntry = $('<div>');
+  instructionEntry.addClass('instruction-entry');
+  instructionEntry.attr('id', 'instruction' + (instructionAmt + 1));
+  instructionEntry.appendTo(instructionSection);
+  const instructionLabel = $('<label>');
+  instructionLabel.text('Instruction ' + (instructionAmt + 1) + ': ');
+  const instructionTextarea = $('<textarea>');
+  instructionTextarea.addClass('form-control');
+  instructionTextarea.attr('rows', 6);
+  instructionLabel.appendTo(instructionEntry);
+  instructionTextarea.appendTo(instructionEntry);
+  instructionAmt++;
 });
 
-$('#login').on('click', function (event) {
+// DELETES INSTRUCTION TEXTAREAS UNTIL 0 REMAIN
+
+$('#delete-instruction').click(function (event) {
   event.preventDefault();
-
-  const user = {
-    email: $('#email').val().trim(),
-    password: $('#user_password').val().trim()
-  };
-
-  $.post('/api/login', user, (result) => {
-    // console.log(result);
-    if (result.loggedIn) {
-      $(document.location).attr('href', '/dashboard');
-    } else {
-      $('#login-err-msg').empty('').text(result.error);
-      $('#user-info').modal('hide');
-    }
-  });
+  if (instructionAmt <= 0) {
+    return;
+  }
+  $('#instruction' + instructionAmt).remove();
+  instructionAmt--;
 });
 
-// POST request to submit cakes into the database
-$('#add-cake').on('click', function (event) {
+// ADDS INGREDIENT TEXTBOXES UP UNTIL 15 ENTRIES
+
+let ingredientAmt = 0;
+$('#add-ingredient').click(function (event) {
+  event.preventDefault();
+  if (ingredientAmt >= 15) {
+    return;
+  }
+  const ingredientSection = $('#ingredient-section');
+  const ingredientEntry = $('<div>');
+  ingredientEntry.addClass('ingredient-entry');
+  ingredientEntry.attr('id', 'ingredient' + (ingredientAmt + 1));
+  ingredientEntry.appendTo(ingredientSection);
+  const ingredientLabel = $('<label>');
+  ingredientLabel.text('Ingredient ' + (ingredientAmt + 1) + ': ');
+  const ingredientInput = $('<input>');
+  ingredientInput.attr('type', 'text');
+  ingredientInput.addClass('form-control');
+  ingredientLabel.appendTo(ingredientEntry);
+  ingredientInput.appendTo(ingredientEntry);
+  ingredientAmt++;
+});
+
+// DELETES INGREDIENT TEXTBOXES UNTIL 0 REMAIN
+
+$('#delete-ingredient').click(function (event) {
+  event.preventDefault();
+  if (ingredientAmt <= 0) {
+    return;
+  }
+  $('#ingredient' + ingredientAmt).remove();
+  ingredientAmt--;
+});
+
+// RUNS IMGBB TO UPLOAD IMAGE
+
+$('#add-images').click(function (event) {
+  event.preventDefault();
+  $('.imgbb-button').click();
+  $('#add-images').attr('disabled', true);
+});
+
+// PARSE URL AND ADD PREVIEW
+
+$('#cake-img-urls').on('input', function (event) {
+  event.preventDefault();
+  const cakeurlFull = $('#cake-img-urls').val();
+  let shortenedCakeurl = cakeurlFull.slice(43);
+  shortenedCakeurl = shortenedCakeurl.split('"')[0];
+  $('#cake-img-urls').val(shortenedCakeurl);
+  const submitContainer = $('.image-submit');
+  const imagePreview = $('<img>');
+  imagePreview.attr('id', 'image-preview');
+  imagePreview.attr('src', shortenedCakeurl);
+  imagePreview.prependTo(submitContainer);
+});
+
+// DELETE IMAGE URL QUEUED AND DELETE PREVIEW
+
+$('#delete-images').click(function (event) {
+  event.preventDefault();
+  $('#cake-img-urls').val('');
+  $('#add-images').attr('disabled', false);
+  $('#imgPreview').remove();
+});
+
+// POST REQUEST TO SEND CAKES TO DATABASE
+
+$('#cake-submit').on('click', function (event) {
   event.preventDefault();
 
   const newCake = {
     name: $('#cake-name').val().trim(),
     difficulty: $('#cake-difficulty').val().trim(),
-    ingredients: $('#cake-ingredients').val().trim()
+    instructions: $('#cake-instructions').val().trim(),
+    ingredients: $('#cake-ingredients').val().trim(),
+    imageurl: $('#imgPreview').attr('src')
   };
   console.log(newCake);
-  // Send the POST request to the database
+
+  // SENDS THE POST REQUEST TO THE DATABASE
   $.ajax('/api/cakes', {
     type: 'POST',
     data: newCake
@@ -156,8 +327,15 @@ $('#add-cake').on('click', function (event) {
   );
 });
 
-// DELETE
-// Delete cake
+// OTHER CONTENTS ---------------------------------------------------------------------------------------------------------------------------
+
+// USER PROFILE LINK FROM THEIR CAKE SUBMISSION
+
+$('.user-profile-link').click(function (event) {
+  window.location.href = '/userprofile';
+});
+
+// DELETES CAKE FROM DATABASE (UNFINISHED)
 
 $('#delete-cake').on('click', function (event) {
   event.preventDefault();
@@ -165,6 +343,7 @@ $('#delete-cake').on('click', function (event) {
     name: $('#name').val().trim(),
     difficulty: $('#difficulty').val().trim(),
     ingredients: $('#ingredients').val().trim()
+
   };
   console.log(deleteCake);
   $.ajax({
@@ -179,7 +358,7 @@ $('#delete-cake').on('click', function (event) {
     });
 });
 
-// Delete comment
+// DELETES COMMENT FROM DATABASE (UNFINISHED)
 $('#delete-comment').on('click', function (event) {
   event.preventDefault();
   const deleteComment = {
@@ -200,6 +379,7 @@ $('#delete-comment').on('click', function (event) {
     });
 });
 
-$('.cake-preview').click(function(event){
-  window.location.href='/cake-page';
+// TAKES USER TO CAKE PAGE
+$('.cake-preview').click(function (event) {
+  window.location.href = '/cake-page';
 });

@@ -17,12 +17,18 @@ $('#register').on('click', function (event) {
 });
 
 // USER SUBMITS REGISTRATION AND ACCOUNT CREATION
+
+const firstName = $('#inputFirst').val().trim();
+const lastName = $('#inputLast').val().trim();
+const userName = (firstName + lastName).toLowerCase();
+
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
   const newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
+    userName: userName,
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };
@@ -82,17 +88,6 @@ $('#update-aboutme').click(function (event) {
   $('#update-aboutme').attr('disabled', true);
 });
 
-// ADD A PROFILE COMMENT
-// $('#update-aboutme').click(function (event) {
-//   event.preventDefault();
-//   const myprofilecommentSection = $('.comment-submit');
-//   const aboutmeTextarea = $('<textarea>');
-//   aboutmeTextarea.addClass('aboutme-textarea');
-//   aboutmeTextarea.addClass('form-control');
-//   aboutmeTextarea.appendTo(aboutmeSection);
-//   $('#update-aboutme').attr('disabled', true);
-// });
-
 // RUNS IMGBB TO UPLOAD PROFILE PICTURE
 
 $('#change-profile-image').click(function (event) {
@@ -123,9 +118,10 @@ $('#update-user').on('click', function (event) {
   const changeUser = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
+    userName: userName,
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim(),
-    profileurl: $('#profile-picture-url').attr('src')
+    profileUrl: $('#profile-picture-url').attr('src')
   };
   $('#err-msg').empty('');
   // $('#change-user-modal').modal('show');
@@ -309,9 +305,9 @@ $('#cake-submit').on('click', function (event) {
   const newCake = {
     name: $('#cake-name').val().trim(),
     difficulty: $('#cake-difficulty').val().trim(),
-    instructions: $('#cake-instructions').val().trim(),
+    instructions: $('#cake-instructions').val(),
     ingredients: $('#cake-ingredients').val().trim(),
-    imageurl: $('#imgPreview').attr('src')
+    cakeimageUrl: $('#image-preview').attr('src')
   };
   console.log(newCake);
 
@@ -342,10 +338,11 @@ $('.user-profile-link').click(function (event) {
 $('#delete-cake').on('click', function (event) {
   event.preventDefault();
   const deleteCake = {
-    name: $('#name').val().trim(),
-    difficulty: $('#difficulty').val().trim(),
-    ingredients: $('#ingredients').val().trim()
-
+    name: $('#cake-name').val().trim(),
+    difficulty: $('#cake-difficulty').val().trim(),
+    instructions: $('#cake-instructions').val(),
+    ingredients: $('#cake-ingredients').val().trim(),
+    cakeimageUrl: $('#image-preview').attr('src')
   };
   console.log(deleteCake);
   $.ajax({
@@ -360,20 +357,20 @@ $('#delete-cake').on('click', function (event) {
     });
 });
 
-// DELETES COMMENT FROM DATABASE (UNFINISHED)
+// ADD COMMENT TO DATABASE:
 $('#delete-comment').on('click', function (event) {
   event.preventDefault();
-  const deleteComment = {
-    title: $('#title').val().trim(),
+  const addComment = {
+    user: $('#user').val().trim(),
     body: $('#body').val().trim(),
     likes: $('#likes').val().trim()
   };
-  console.log(deleteComment);
+  console.log(addComment);
   $.ajax({
-    type: 'DELETE',
+    type: 'POST',
     // need id to reference
     url: '/api/Cakes',
-    data: deleteComment
+    data: addComment
   }).then(
     function () {
       (console.log('Comment deleted'));

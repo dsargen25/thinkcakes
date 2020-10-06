@@ -44,13 +44,15 @@ module.exports = function (sequelize, DataTypes) {
 
   User.associate = function (models) {
     User.hasMany(models.Cakes, {
-      onDelete: 'cascade'
+      onDelete: 'cascade',
+      as: 'cakes',
+      foreignKey: 'cakeId'
     });
-  };
 
-  User.associate = function (models) {
     User.hasMany(models.Comments, {
-      onDelete: 'cascade'
+      onDelete: 'cascade',
+      as: 'comments',
+      foreignKey: 'commentId'
     });
   };
 

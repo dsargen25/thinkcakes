@@ -22,7 +22,7 @@ module.exports = (passport, db) => {
   // Cake Routes
   router.get('/cakes', AppController.getAllCakes);
   router.get('/cakes/:id', AppController.getSpecificCakes);
-  router.get('/cakes/:userName', AppController.getUserCakes);
+  router.get('/userCakes/:userName', AppController.getUserCakes);
   router.post('/cakes', AppController.createNewCake);
   router.delete('/cakes/:id', AppController.deleteCakePost);
 

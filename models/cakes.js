@@ -28,12 +28,16 @@ module.exports = function (sequelize, DataTypes) {
 
   Cakes.associate = function (models) {
     Cakes.belongsTo(models.User, {
-      foreignKey: {
-        name: 'userName'
-        // allowNull: false
-      }
+      as: 'user',
+      foreignKey: 'UserId'
+      // allowNull: false
+    });
+
+    Cakes.hasMany(models.Comments, {
+      onDelete: 'cascade',
+      as: 'comments',
+      foreignKey: 'commentId'
     });
   };
-
   return Cakes;
 };

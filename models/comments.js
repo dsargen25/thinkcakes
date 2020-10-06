@@ -24,14 +24,12 @@ module.exports = function (sequelize, DataTypes) {
 
   Comments.associate = function (models) {
     Comments.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
+      as: 'creator',
+      foreignKey: 'creatorId'
     });
     Comments.belongsTo(models.Cakes, {
-      foreignKey: {
-        allowNull: false
-      }
+      as: 'cake',
+      foreignKey: 'cakeId'
     });
   };
   return Comments;

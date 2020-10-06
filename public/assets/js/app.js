@@ -135,7 +135,7 @@ $('#login').on('click', function (event) {
 });
 
 // POST request to submit cakes into the database
-$('#add-cake').on('click', function (event) {
+$('#cake-submit').on('click', function (event) {
   event.preventDefault();
 
   const newCake = {
@@ -147,6 +147,8 @@ $('#add-cake').on('click', function (event) {
   // Send the POST request to the database
   $.ajax('/api/cakes', {
     type: 'POST',
+    // this is important, with withCredentials needs to be with comments onclick
+    withCredentials: true,
     data: newCake
   }).then(
     function () {
@@ -200,6 +202,6 @@ $('#delete-comment').on('click', function (event) {
     });
 });
 
-$('.cake-preview').click(function(event){
-  window.location.href='/cake-page';
+$('.cake-preview').click(function (event) {
+  window.location.href = '/cake-page';
 });

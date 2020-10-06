@@ -33,5 +33,11 @@ CREATE TABLE Comments (
   PRIMARY KEY (id)
 );
 
+INSERT INTO User (firstName, lastName, email, password, profileUrl)
+VALUES ('Adam', 'Gates', 'adamgates@mail.com', 'adam', 'https://i.ibb.co/D8sLYHh/adamgates.jpg');
 
+INSERT INTO User (firstName, lastName, email, password, profileUrl)
+VALUES ('Mark', 'Lee', 'marklee@mail.com', 'mark', 'https://i.ibb.co/G2jZHt0/marklee.jpg');
 
+INSERT INTO User (firstName, lastName, email, password, profileUrl)
+VALUES ('Carla', 'Bean', 'carlabean@mail.com', 'carla', 'https://i.ibb.co/tYNcD47/carlabean.jpg');

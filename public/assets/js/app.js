@@ -298,7 +298,7 @@ $('#delete-images').click(function (event) {
   event.preventDefault();
   $('#cake-img-urls').val('');
   $('#add-images').attr('disabled', false);
-  $('#imgPreview').remove();
+  $('#image-preview').remove();
 });
 
 // POST REQUEST TO SEND CAKES TO DATABASE

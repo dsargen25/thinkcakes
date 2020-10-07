@@ -22,13 +22,13 @@ module.exports = (passport, db) => {
   // Cake Routes
   router.get('/cakes', AppController.getAllCakes);
   router.get('/cakes/:id', AppController.getSpecificCakes);
-  router.get('/userCakes/:userName', AppController.getUserCakes);
+  router.get('/userCakes/:userId', AppController.getUserCakes);
   router.post('/cakes', AppController.createNewCake);
   router.delete('/cakes/:id', AppController.deleteCakePost);
 
   // Comment Routes
   router.get('/comments', AppController.getCakeComments);
-  router.get('/comments/:id', AppController.getUserComments);
+  router.get('/comments/:creatorId', AppController.getUserComments);
   router.post('/comments', AppController.createNewComment);
   router.delete('/comments/:id', AppController.deleteComment);
 

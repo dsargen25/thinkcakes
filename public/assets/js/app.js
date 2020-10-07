@@ -314,8 +314,6 @@ $('#cake-submit').on('click', function (event) {
   // SENDS THE POST REQUEST TO THE DATABASE
   $.ajax('/api/cakes', {
     type: 'POST',
-    // this is important, with withCredentials needs to be with comments onclick
-    withCredentials: true,
     data: newCake
   }).then(
     function () {

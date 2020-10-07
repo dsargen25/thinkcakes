@@ -24,11 +24,9 @@ module.exports = function (sequelize, DataTypes) {
 
   Comments.associate = function (models) {
     Comments.belongsTo(models.User, {
-      as: 'creator',
       foreignKey: 'creatorId'
     });
     Comments.belongsTo(models.Cakes, {
-      as: 'cake',
       foreignKey: 'cakeId'
     });
   };

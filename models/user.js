@@ -25,6 +25,14 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    profileUrl: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    userBio: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
@@ -45,13 +53,11 @@ module.exports = function (sequelize, DataTypes) {
   User.associate = function (models) {
     User.hasMany(models.Cakes, {
       onDelete: 'cascade',
-      as: 'cakes',
       foreignKey: 'cakeId'
     });
 
     User.hasMany(models.Comments, {
       onDelete: 'cascade',
-      as: 'comments',
       foreignKey: 'commentId'
     });
   };

@@ -5,12 +5,9 @@ module.exports = function (sequelize, DataTypes) {
       autoIncrement: true,
       primaryKey: true
     },
-    title: {
+    user: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
+      allowNull: true
     },
     body: {
       type: DataTypes.TEXT,
@@ -18,17 +15,15 @@ module.exports = function (sequelize, DataTypes) {
       len: [1]
     },
     likes: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.INTEGER
     }
   });
 
   Comments.associate = function (models) {
     Comments.belongsTo(models.User, {
-      as: 'creator',
       foreignKey: 'creatorId'
     });
     Comments.belongsTo(models.Cakes, {
-      as: 'cake',
       foreignKey: 'cakeId'
     });
   };

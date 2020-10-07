@@ -30,26 +30,6 @@ module.exports = (db) => {
     }
   });
 
-  // Load other user profile page
-  router.get('/userprofile', (req, res) => {
-    if (req.isAuthenticated()) {
-      db.User.findOne({
-        where: {
-          id: req.session.passport.user.id
-        }
-      }).then(() => {
-        const user = {
-          userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated()
-        };
-        // console.log(user);
-        res.render('userprofile', user);
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
-
   // Load dashboard page
   router.get('/', (req, res) => {
     if (req.isAuthenticated()) {

@@ -1,7 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
   const Cakes = sequelize.define('Cakes', {
-    // text: DataTypes.STRING,
-    // description: DataTypes.TEXT
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -13,8 +11,17 @@ module.exports = function (sequelize, DataTypes) {
     difficulty: {
       type: DataTypes.INTEGER
     },
+    instructions: {
+      type: DataTypes.TEXT
+    },
     ingredients: {
       type: DataTypes.TEXT
+    },
+    cakeimageUrl: {
+      type: DataTypes.TEXT
+    },
+    cakeLikes: {
+      type: DataTypes.INTEGER
     },
     createdAt: {
       field: 'created_at',
@@ -28,14 +35,12 @@ module.exports = function (sequelize, DataTypes) {
 
   Cakes.associate = function (models) {
     Cakes.belongsTo(models.User, {
-      as: 'user',
       foreignKey: 'UserId'
       // allowNull: false
     });
 
     Cakes.hasMany(models.Comments, {
       onDelete: 'cascade',
-      as: 'comments',
       foreignKey: 'commentId'
     });
   };

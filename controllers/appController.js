@@ -1,27 +1,7 @@
-const Cakes = require('../models/cakes');
-const User = require('../models/user');
 
 module.exports = function (db) {
   return {
-    // Get all examples
-    // getExamples: function (req, res) {
-    //   db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
-    //     res.json(dbExamples);
-    //   });
-    // },
-    // // Create a new example
-    // createExample: function (req, res) {
-    //   db.Example.create(req.body).then(function (dbExample) {
-    //     res.json(dbExample);
-    //   });
-    // },
-    // // Delete an example by id
-    // deleteExample: function (req, res) {
-    //   db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-    //     res.json(dbExample);
-    //   });
-    // },
-    // get all cakes table and column names subject to change
+    // GET ALL OF CAKES TABLE AND COLUMN NAMES (SUBJECT TO CHANGE)
     getAllCakes: function (req, res) {
       db.Cakes.findAll({}).then(function (cakes) {
         res.json(cakes);
@@ -29,14 +9,14 @@ module.exports = function (db) {
     },
     // get all cakes table and column names subject to change
     getSpecificCakes: function (req, res) {
-      db.Cakes.findAll({ where: { id: req.params.id }, include: 'User' })
+      db.Cakes.findAll({ where: { id: req.params.id } })
         .then(function (cakes) {
           res.json(cakes);
         });
     },
     // get all cakes table and column names subject to change
     getUserCakes: function (req, res) {
-      db.User.findOne({ where: { id: req.params.userName }, include: { model: Cakes } })
+      db.Cakes.findAll({ where: { UserId: req.params.userId } })
         .then(function (cakes) {
           console.log(cakes);
           res.json(cakes);
@@ -53,14 +33,14 @@ module.exports = function (db) {
     // get user submitted comments column titles subject to change
     getUserComments: function (req, res) {
       // this needs a join
-      db.Comments.findOne({ where: { id: req.user.id }, include: { model: User } }).then(function (cakes) {
+      db.Comments.findAll({ where: { creatorId: req.params.creatorId } }).then(function (cakes) {
         res.json(cakes);
       });
     },
     // create a new cake post
     createNewCake: function (req, res) {
       // this next line ties the user id with the cake
-      req.body.UserId = req.user.id;
+      // req.body.UserId = req.user.id;
       console.log(req.body);
       db.Cakes.create(req.body).then(function (cakes) {
         res.json(cakes);
@@ -70,7 +50,7 @@ module.exports = function (db) {
     // create new comment
     createNewComment: function (req, res) {
       // this next line ties the user id with the comment
-      req.body.userName = req.user.id;
+      // req.body.userName = req.user.id;
       db.Comments.create(req.body).then(function (comments) {
         res.json(comments);
       });
@@ -81,7 +61,8 @@ module.exports = function (db) {
         res.json(cakes);
       });
     },
-    // delete a comment
+
+    // DELETE A COMMENT
     deleteComment: function (req, res) {
       db.Comments.destroy({ where: { id: req.params.id } }).then(function (comments) {
         res.json(comments);

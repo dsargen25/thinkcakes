@@ -4,11 +4,11 @@
     <div class="home-previews">
       <div class="cake-preview cakes">
         {{#each cakes}}
-        <div class="cake-imgcontainer"><img src="{{cakeimageUrl}}"></div>
+        <div class="cake-imgcontainer"><img src="{{this.cakeimageUrl}}"></div>
         <div class="cake-textcontainer">
-          <p>{{name}}</p>
-          <p>{{difficulty}}</p>
-          <p>{{cakeLikes}}</p>
+          <p>{{this.name}}</p>
+          <p>{{this.difficulty}}</p>
+          <p>{{this.Likes}}</p>
         </div>
         {{else}}
         <div>

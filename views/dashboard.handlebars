@@ -2,11 +2,20 @@
 
 <main>
     <div class="home-previews">
-      <div class="cake-preview">
-        <div class="cake-imgcontainer"></div>
-        <div class="cake-textcontainer"></div>
+      <div class="cake-preview cakes">
+        {{#each cakes}}
+        <div class="cake-imgcontainer"><img src="{{cakeimageUrl}}"></div>
+        <div class="cake-textcontainer">
+          <p>{{name}}</p>
+          <p>{{difficulty}}</p>
+          <p>{{cakeLikes}}</p>
+        </div>
+        {{else}}
+        <div>
+          <p>No cakes available</p>
+        </div>
+        {{/each}}
       </div>
     </div>
 </main>
-  
 {{> modal/login-block}}

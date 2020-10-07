@@ -3,7 +3,7 @@
   <main>
     <div class="profile-self">
       <div class="profile-upsecA">
-        <div class="profile-img"><img id="profile-image-file" src="/assets/img/blank-profile.png" alt="profile picture"></div>
+        <div class="profile-img"><img id="profile-image-file" src="{{userInfo.profileUrl}}" alt="profile picture"></div>
         <form class="hidden-form">
           <div class="form-group">
             <textarea class="form-control" id="profile-picture-url" rows="3"></textarea>
@@ -42,6 +42,7 @@
 
               <div class="form-group aboutme-section">
                 <label>About Me: </label><br>
+                <p class="original-userbio">{{userInfo.userBio}}</p>
                 <button id="update-aboutme" class="btn btn-primary">Update About Me</button>
               </div>
 
@@ -57,7 +58,18 @@
       </div>
 
       <div class="profile-lowsec">
-        <p>cakes user created generated here</p>
+        {{#each cakes}}
+        <div class="cake-imgcontainer"><img src="{{cakeimageUrl}}"></div>
+        <div class="cake-textcontainer">
+          <p>{{name}}</p>
+          <p>{{difficulty}}</p>
+          <p>{{cakeLikes}}</p>
+        </div>
+        {{else}}
+        <div>
+          <p>No cakes available</p>
+        </div>
+        {{/each}}
       </div>
 
     </div>

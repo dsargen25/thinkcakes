@@ -4,32 +4,32 @@ create database project2_dev;
 CREATE TABLE User (
   id int(11) AUTO_INCREMENT NOT NULL,
   firstName varchar(30) NOT NULL,
-  lastName varchar(30 ),
+  lastName varchar(30),
+  userName varchar(60), --SAME AS 'CREATOR' UNDER THE CAKES TABLE
   email varchar(50) NOT NULL,
   password varchar(32) NOT NULL,
-  profileUrl varchar(40) NOT NULL, --ADDITIONS HERE
-  -- isAdmin boolean,
+  profileUrl varchar(40),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE Cakes (
   id int(11) AUTO_INCREMENT NOT NULL,
   name varchar(30) NOT NULL,
+  creator varchar(60) NOT NULL, --SAME AS 'USERNAME' UNDER THE USER TABLE
   difficulty int(5) NOT NULL,
-  instructions varchar(2000) NOT NULL, --ADDITIONS HERE
+  instructions varchar(2000) NOT NULL,
   ingredients varchar(2000) NOT NULL,
-  cakeimageUrl varchar(40) NOT NULL, --ADDITIONS HERE
-  cakeLikes smallint NOT NULL, --ADDITIONS HERE
+  cakeimageUrl varchar(40) NOT NULL,
+  cakeLikes smallint NOT NULL, 
+  cakeComment varchar(2000) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE Comments (
   id int(11) AUTO_INCREMENT NOT NULL,
-  user varchar(30), --THE FIRST NAME OF THE COMMENTING USER
-  -- title varchar(30),
+  user varchar(60), --SAME AS 'CREATOR' IN THE CAKES TABLE AND 'USERNAME'
   body varchar(500) NOT NULL,
-  -- likes boolean,
-  likes smallint NOT NULL, --NEED THE NUMBER OF LIKES
+  likes smallint NOT NULL,
   PRIMARY KEY (id)
 );
 

@@ -18,9 +18,9 @@ $('#register').on('click', function (event) {
 
 // USER SUBMITS REGISTRATION AND ACCOUNT CREATION
 
-const firstName = $('#inputFirst').val().trim();
-const lastName = $('#inputLast').val().trim();
-const userName = (firstName + lastName).toLowerCase();
+// const firstName = $('#inputFirst').val().trim();
+// const lastName = $('#inputLast').val().trim();
+// const userName = (firstName + lastName).toLowerCase();
 
 $('#add-user').on('click', function (event) {
   event.preventDefault();
@@ -28,7 +28,7 @@ $('#add-user').on('click', function (event) {
   const newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
-    userName: userName,
+    // userName: userName,
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };

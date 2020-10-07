@@ -16,19 +16,12 @@ $('#register').on('click', function (event) {
   window.location.href = '/register';
 });
 
-// USER SUBMITS REGISTRATION AND ACCOUNT CREATION
-
-// const firstName = $('#inputFirst').val().trim();
-// const lastName = $('#inputLast').val().trim();
-// const userName = (firstName + lastName).toLowerCase();
-
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
   const newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
-    // userName: userName,
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };
@@ -84,6 +77,8 @@ $('#update-aboutme').click(function (event) {
   const aboutmeTextarea = $('<textarea>');
   aboutmeTextarea.addClass('aboutme-textarea');
   aboutmeTextarea.addClass('form-control');
+  const existingBio = $('.original-userbio').text();
+  aboutmeTextarea.text(existingBio);
   aboutmeTextarea.appendTo(aboutmeSection);
   $('#update-aboutme').attr('disabled', true);
 });
@@ -100,7 +95,7 @@ $('#change-profile-image').click(function (event) {
 $('#profile-picture-url').on('input', function (event) {
   event.preventDefault();
   const profileurlFull = $('#profile-picture-url').val();
-  let shortenedProfileurl = profileurlFull.slice(43);
+  let shortenedProfileurl = profileurlFull.slice(39);
   shortenedProfileurl = shortenedProfileurl.split('"')[0];
   $('#profile-picture-url').val(shortenedProfileurl);
   const profileFile = $('#profile-image-file');
@@ -118,13 +113,12 @@ $('#update-user').on('click', function (event) {
   const changeUser = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
-    userName: userName,
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim(),
-    profileUrl: $('#profile-picture-url').attr('src')
+    profileUrl: $('#profile-picture-url').attr('src'),
+    userBio: $('.aboutme-textarea').text().trim()
   };
   $('#err-msg').empty('');
-  // $('#change-user-modal').modal('show');
   console.log(changeUser);
 
   // THIS ONLY EDITS IF THE USER ENTERS THEIR PASSWORD
@@ -132,16 +126,15 @@ $('#update-user').on('click', function (event) {
   if (changeUser.password.length > 0 && changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.lastName.length > 0 && changeUser.firstName.length > 0) {
     $.ajax({
       type: 'PUT',
-      url: `/api/user/${id}`,
+      url: `/api/users/${id}`,
       data: changeUser
     }).then((result) => {
       console.log('Updated user:', result);
-      // Reload the page to get the updated list
       window.location.href = '/logout';
     });
   } else {
     console.log('**Please fill out entire form**');
-    $('#update-err-msg').empty('').text('**Please fill out entire form**'); // ADD MODAL OR RED ERROR TEXT FOR THIS
+    $('#update-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
 
@@ -167,15 +160,14 @@ $('#confirm-delete').on('click', function (event) {
   if (deleteUser.email.length > 0 && deleteUser.password.length > 0) {
     $.ajax({
       type: 'POST',
-      url: '/api/user/confirm',
+      url: '/api/users/confirm',
       data: deleteUser
     }).then((result) => {
       if (result) {
-        $.ajax(`/api/user/${id}`, {
+        $.ajax(`/api/users/${id}`, {
           type: 'DELETE'
         }).then(() => {
           console.log('Deleted user', deleteUser);
-          // Reload the page to get the updated list
           window.location.href = '/logout';
         });
       } else {
@@ -296,6 +288,20 @@ $('#delete-images').click(function (event) {
   $('#add-images').attr('disabled', false);
   $('#image-preview').remove();
 });
+// OTHER CONTENTS ---------------------------------------------------------------------------------------------------------------------------
+
+// USER PROFILE LINK FROM THEIR CAKE SUBMISSION
+
+// $('.user-profile-link').click(function (event) {
+//   var id = $(this).data('id');
+//   $.ajax(`/api/cakes/${id}`),{
+//     type: "GET"
+//   }).then((data) => {
+
+//   }
+
+// window.location.href = '/userprofile';
+// });
 
 // POST REQUEST TO SEND CAKES TO DATABASE
 
@@ -325,12 +331,16 @@ $('#cake-submit').on('click', function (event) {
   );
 });
 
-// OTHER CONTENTS ---------------------------------------------------------------------------------------------------------------------------
+$('#submit-comment').on('click', function (event) {
+  event.preventDefault();
 
-// USER PROFILE LINK FROM THEIR CAKE SUBMISSION
+  const newComment = {
+    body: $('#cake-comment').text()
+  };
 
-$('.user-profile-link').click(function (event) {
-  window.location.href = '/userprofile';
+  console.log(newComment);
+
+  $.ajax('/api/user/');
 });
 
 // DELETES CAKE FROM DATABASE (UNFINISHED)

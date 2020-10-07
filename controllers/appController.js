@@ -3,25 +3,7 @@ const User = require('../models/user');
 
 module.exports = function (db) {
   return {
-    // Get all examples
-    // getExamples: function (req, res) {
-    //   db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
-    //     res.json(dbExamples);
-    //   });
-    // },
-    // // Create a new example
-    // createExample: function (req, res) {
-    //   db.Example.create(req.body).then(function (dbExample) {
-    //     res.json(dbExample);
-    //   });
-    // },
-    // // Delete an example by id
-    // deleteExample: function (req, res) {
-    //   db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-    //     res.json(dbExample);
-    //   });
-    // },
-    // get all cakes table and column names subject to change
+    // GET ALL OF CAKES TABLE AND COLUMN NAMES (SUBJECT TO CHANGE)
     getAllCakes: function (req, res) {
       db.Cakes.findAll({}).then(function (cakes) {
         res.json(cakes);
@@ -81,7 +63,8 @@ module.exports = function (db) {
         res.json(cakes);
       });
     },
-    // delete a comment
+
+    // DELETE A COMMENT
     deleteComment: function (req, res) {
       db.Comments.destroy({ where: { id: req.params.id } }).then(function (comments) {
         res.json(comments);

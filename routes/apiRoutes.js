@@ -3,10 +3,9 @@ const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
 module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
-  // const AppController = require('../controllers/appController')(db);
   const AppController = require('../controllers/appController')(db);
 
-  // Authentication
+  // AUTHENTICATION
   router.post('/register', AuthController.register);
   router.post('/login', AuthController.login);
   router.get('/logout', AuthController.logout);
@@ -14,19 +13,14 @@ module.exports = (passport, db) => {
   router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
   router.post('/user/confirm', AuthController.confirmAuth);
 
-  // App
-  // router.get('/examples', AppController.getExamples);
-  // router.post('/examples', AppController.createExample);
-  // router.delete('/examples/:id', AppController.deleteExample);
-
-  // Cake Routes
+  // CAKE ROUTES
   router.get('/cakes', AppController.getAllCakes);
   router.get('/cakes/:id', AppController.getSpecificCakes);
   router.get('/userCakes/:userName', AppController.getUserCakes);
   router.post('/cakes', AppController.createNewCake);
   router.delete('/cakes/:id', AppController.deleteCakePost);
 
-  // Comment Routes
+  // COMMENT ROUTES
   router.get('/comments', AppController.getCakeComments);
   router.get('/comments/:id', AppController.getUserComments);
   router.post('/comments', AppController.createNewComment);
@@ -34,6 +28,8 @@ module.exports = (passport, db) => {
 
   return router;
 };
+
+// TESTING
 
 // module.exports = cakesdb => {
 //   const CakeController = require('../controllers/cakeController');

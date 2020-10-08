@@ -306,18 +306,17 @@ $('#delete-images').click(function (event) {
 // POST REQUEST TO SEND CAKES TO DATABASE
 
 $('#cake-submit').on('click', function (event) {
-  const combinedIngredients = $('#ingredient1.text()') + '<li>' + $('#ingredient2.text()') + '<li>' + $('#ingredient3').text() + '<li>' + $('#ingredient4').text() + '<li>' + $('#ingredient5').text() + '<li>' + $('#ingredient6').text() + '<li>' + $('#ingredient7').text() + '<li>' + $('#ingredient8').text() + '<li>' + $('#ingredient9').text() + '<li>' + $('#ingredient10').text() + '<li>';
-
-  const combinedInstructions = $('#instruction1').text() + '<li>' + $('#instruction2').text() + '<li>' + $('#instruction3').text() + '<li>' + $('#instruction4').text() + '<li>' + $('#instruction5').text() + '<li>' + $('#instruction6').text() + '<li>' + $('#instruction7').text() + '<li>' + $('#instruction8').text() + '<li>' + $('#instruction9').text() + '<li>' + $('#instruction10').text() + '<li>';
-
   event.preventDefault();
+  // const combinedIngredients = $('#ingredient1.text()') + '<li>' + $('#ingredient2.text()') + '<li>' + $('#ingredient3').text() + '<li>' + $('#ingredient4').text() + '<li>' + $('#ingredient5').text() + '<li>' + $('#ingredient6').text() + '<li>' + $('#ingredient7').text() + '<li>' + $('#ingredient8').text() + '<li>' + $('#ingredient9').text() + '<li>' + $('#ingredient10').text() + '<li>';
+
+  // const combinedInstructions = $('#instruction1').text() + '<li>' + $('#instruction2').text() + '<li>' + $('#instruction3').text() + '<li>' + $('#instruction4').text() + '<li>' + $('#instruction5').text() + '<li>' + $('#instruction6').text() + '<li>' + $('#instruction7').text() + '<li>' + $('#instruction8').text() + '<li>' + $('#instruction9').text() + '<li>' + $('#instruction10').text() + '<li>';
 
   const newCake = {
     name: $('#cake-name').val().trim(),
-    difficulty: $('#cake-difficulty').val().trim(),
-    instructions: combinedInstructions.trim(),
-    ingredients: combinedIngredients.trim(),
-    cakeimageUrl: $('#image-preview').attr('src')
+    difficulty: $('#cake-difficulty').val().trim()
+    // instructions: combinedInstructions.trim(),
+    // ingredients: combinedIngredients.trim(),
+    // cakeimageUrl: $('#cake-img-urls').text()
   };
   console.log(newCake);
 
@@ -333,6 +332,40 @@ $('#cake-submit').on('click', function (event) {
     }
   );
 });
+
+$(document).ready(function () {
+  const displayCakes = {
+    name: this.name,
+    difficulty: this.difficulty
+    // cakeimageUrl: $('#cake-img-urls').text()
+  };
+  $.ajax('/', {
+    type: 'GET',
+    data: displayCakes
+  }).then(
+    function () {
+      console.log('ajax was successful');
+      console.log(displayCakes);
+    }
+  );
+});
+
+// $(document).ready(function () {
+//   const displayCakes = {
+//     name: this.name,
+//     difficulty: this.difficulty
+//     // cakeimageUrl: $('#cake-img-urls').text()
+//   };
+//   $.ajax('/', {
+//     type: 'GET',
+//     data: displayCakes
+//   }).then(
+//     function () {
+//       console.log('ajax was successful');
+//       console.log(displayCakes);
+//     }
+//   );
+// });
 
 $('#submit-comment').on('click', function (event) {
   event.preventDefault();
@@ -391,7 +424,27 @@ $('#delete-comment').on('click', function (event) {
     });
 });
 
-// TAKES USER TO CAKE PAGE
-$('.cake-preview').click(function (event) {
-  window.location.href = '/cake-page';
+// TAKES USER TO RESPECTIVE CAKE PAGES (TEMPFIX)
+
+$('#carrotcake').click(function (event) {
+  window.location.href = '/cakes/carrotcake';
+});
+
+$('#redvelvetcake').click(function (event) {
+  window.location.href = '/cakes/redvelvetcake';
+});
+$('#chocolatecake').click(function (event) {
+  window.location.href = '/cakes/chocolatecake';
+});
+
+$('#marklee').click(function (event) {
+  window.location.href = '/user-profiles/marklee';
+});
+
+$('#adamgates').click(function (event) {
+  window.location.href = '/user-profiles/adamgates';
+});
+
+$('#carlabean').click(function (event) {
+  window.location.href = '/user-profiles/carlabean';
 });

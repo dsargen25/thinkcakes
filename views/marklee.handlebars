@@ -1,0 +1,93 @@
+{{> nav/nav-block user=true register=false}}
+
+  <main>
+    <div class="profile-self">
+      <div class="profile-upsecA">
+        <div class="profile-img" style="background-image:url('https://i.ibb.co/G2jZHt0/marklee.jpg');background-size:cover;background-repeat:no-repeat;background-position:center;"></div>
+        <div class="profile-contributions"></div>
+      </div>
+      <div class="profile-upsecB">
+        <div class="profile-stats">
+
+              <div class="profile-name">
+                <p>Mark Lee</p>
+              </div>
+
+              <div class="profile-email">
+                <p>marklee@mail.com</p>
+              </div>
+
+              <div class="group aboutme-section">
+                <label>About Me: </label><br>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim arcu quis hendrerit molestie. Donec luctus vulputate magna, id efficitur turpis feugiat sollicitudin. Nunc eleifend enim et ligula faucibus, ut porttitor felis tempor. Nulla consequat sollicitudin viverra. Nulla aliquam faucibus lacus, quis porta justo tempus eu. Donec commodo nisl vel ante dignissim lobortis. Cras sodales magna vitae nulla tincidunt tristique. Nunc ut venenatis lectus. Curabitur ac risus leo. Nulla sed quam et nunc vestibulum accumsan non sit amet quam. Proin lobortis ut sapien sed suscipit. Aliquam feugiat dignissim sapien, quis dictum diam fermentum vitae."</p>
+              </div>
+        </div>
+      </div>
+
+      <div class="profile-lowsec">
+        <h3 class="profile-cake-grid-title">My Cakes:</h3>
+        <div class="profile-cake-grid">
+
+
+
+        <div class="profile-cake-preview-container" id="carrotcake">
+          <div class="profile-cake-imgcontainer" style="background-image:url('https://i.ibb.co/tC4TzgL/carrotcake.jpg');background-size:cover;background-repeat:no-repeat;"></div>
+          <div class="profile-cake-textcontainer">
+            <h3>Carrot Cake</h3>
+            <ul>
+              <li>Difficulty: 5</li>
+              <li>Likes: 8</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-cake-preview-container" id="redvelvetcake">
+          <div class="profile-cake-imgcontainer" style="background-image:url('https://i.ibb.co/QjfZJnT/redvelvetcake.jpg');background-size:cover;background-repeat:no-repeat;"></div>
+          <div class="profile-cake-textcontainer">
+            <h3>Red Velvet Cake</h3>
+            <ul>
+              <li>Difficulty: 7</li>
+              <li>Likes: 31</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+  </main>
+
+
+  <div class="modal" id="delete-user-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Re-Enter Credentials to delete user</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <h3 id="err-msg"></h3>
+          <form>
+            <div class="form-group">
+              <label for="userEmail">Email:</label>
+              <input type="text" class="form-control" id="userEmail">
+            </div>
+            <div class="form-group">
+              <label for="userPassword">Password:</label>
+              <input type="password" class="form-control" id="userPassword">
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button id="confirm-delete" type="button" data-id="{{userInfo.id}}" class="btn btn-primary">Confirm Delete</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Nah I'll stay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

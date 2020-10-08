@@ -1,0 +1,48 @@
+{{> nav/nav-block}}
+
+<main>
+   <div class="cake-page">
+     <div class="cake-top-section">
+       <div class="cake-title">
+         <h2>Carrot Cake</h2>
+         <h3 class="cake-difficulty-rating">Difficulty Rating: 5</h3>
+         <div class="cake-creator-box" id="marklee">
+        <div class="creator-image" style="background-image:url('https://i.ibb.co/G2jZHt0/marklee.jpg');background-size:cover;background-repeat:no-repeat;background-position:center;"></div>
+        <div class="creator-details">
+          <p>Submitted by: Mark Lee</p>
+          <p class="creator-subtitle">Click Here to visit User Profile!</p>
+        </div>
+      </div>
+       </div>
+       <div class="cake-image" style="background-image:url('https://i.ibb.co/tC4TzgL/carrotcake.jpg');background-size:cover;background-repeat:no-repeat;background-position:center;"></div>
+     </div>
+    <div class="cake-details">
+      <h3>Instructions: </h3>
+      <div class="cake-instructions-container"><ol type="1"><li>Heat the oven to 350 degrees Fahrenheit (176C). Grease two 9-inch round cake pans and line the bottom with parchment paper then grease the top of the paper. Or, grease and flour the bottom and sides of both pans.</li><li>In a medium bowl, whisk flour, baking soda, salt, and the cinnamon until well blended.</li><li>In a separate bowl, whisk the oil, sugars, and vanilla. Whisk in eggs, one at a time, until combined.</li><li>Switch to a large rubber spatula. Scrape the sides and bottom of the bowl then add the dry ingredients in 3 parts, gently stirring until they disappear and the batter is smooth. Stir in the carrots, nuts, and raisins.</li><li>Divide the batter between the prepared cake pans. Bake until the tops of the cake layers are springy when touched and when a toothpick inserted into the center of the cake comes out clean, 35 to 45 minutes.</li><li>Cool cakes in pans for 15 minutes then turn out onto cooling racks, peel off parchment paper and cool completely. (If you find that a cake layer is stuck to the bottom of the pan, leave the cake pan upside down and allow gravity to do its thing).</li><li>In a large bowl, beat cream cheese with a handheld mixer on medium speed until creamy, about 1 minute.</li><li>Beat in the powdered sugar, a 1/4 cup at a time until fluffy. Pour in cream and beat on medium speed for 1 minute. Chill covered until ready to frost cake.</li><li>When the cake layers are completely cool, frost the top of one cake layer, place the other cake layer on top. Decoratively swirl the top of the cake with remaining frosting, leaving the sides unfrosted. Scatter nuts on top.</li></ol></div>
+    </div>
+    <div class="cake-stats">
+      <h3>Ingredients: </h3>
+      <div class="cake-ingredients-container"><li>2 cups (250 grams) all-purpose flour</li><li>2 teaspoons baking soda</li><li>1/2 teaspoon fine sea salt</li><li>1 1/2 teaspoons ground cinnamon</li><li>1 1/4 cups (295 ml) canola or other vegetable oil</li><li>1 cup (200 grams) granulated sugar</li><li>1 cup (200 grams) lightly packed brown sugar</li><li>1 teaspoon vanilla extract</li><li>4 large eggs</li><li>3 cups (300 grams) grated peeled carrots (5 to 6 medium carrots)</li><li>1 cup (100 grams) coarsely chopped pecans</li><li>1/2 cup (65 grams) raisins</li></div>
+    </div>
+    <div class="cake-comments">
+      <div class="form-group">
+            <label>Add a Comment: </label><br>
+            <textarea class="form-control" id="cake-comment" rows="2"></textarea>
+            <button type="submit" id="submit-comment" class="btn btn-primary">Submit</button>
+          </div>
+      {{#each comment}}
+      <div class="comments">
+        <ul>
+          {{comments.body}}
+        </ul>
+      </div>
+      {{else}}
+      <div class="comments">
+        <ul>
+          <li>I enjoyed this recipe very much, I was never been much of a fan of carrots until now.</li><li>Great recipe! I was able to make it at home and it tastes great.</li>
+        </ul>
+      </div>
+      {{/each}}
+    </div>
+   </div>
+</main>

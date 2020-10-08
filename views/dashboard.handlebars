@@ -2,20 +2,44 @@
 
 <main>
     <div class="home-previews">
-      <div class="cake-preview cakes">
-        {{#each cakes}}
-        <div class="cake-imgcontainer"><img src="{{this.cakeimageUrl}}"></div>
+        {{#cakes}}
+        <div class="cake-imgcontainer"><img src="{{cakeimageUrl}}"></div>
         <div class="cake-textcontainer">
-          <p>{{this.name}}</p>
-          <p>{{this.difficulty}}</p>
-          <p>{{this.Likes}}</p>
+          <p>{{name}}</p>
+          <p>{{difficulty}}</p>
         </div>
         {{else}}
-        <div>
-          <p>No cakes available</p>
+        <div class="cake-preview-container" id="carrotcake">
+          <div class="cake-imgcontainer" style="background-image:url('https://i.ibb.co/tC4TzgL/carrotcake.jpg');background-size:cover;background-repeat:no-repeat;background-position:center;"></div>
+          <div class="cake-textcontainer">
+            <h3>Carrot Cake</h3>
+            <ul>
+              <li>Difficulty: 5</li>
+              <li>Likes: 8</li>
+            </ul>
+          </div>
         </div>
-        {{/each}}
-      </div>
+        <div class="cake-preview-container" id="redvelvetcake">
+          <div class="cake-imgcontainer" style="background-image:url('https://i.ibb.co/QjfZJnT/redvelvetcake.jpg');background-size:cover;background-repeat:no-repeat;background-position:center;"></div>
+          <div class="cake-textcontainer">
+            <h3>Red Velvet Cake</h3>
+            <ul>
+              <li>Difficulty: 7</li>
+              <li>Likes: 31</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cake-preview-container" id="chocolatecake">
+          <div class="cake-imgcontainer" style="background-image:url('https://i.ibb.co/n7Ts0Wp/chocolatecake.jpg');background-size:cover;background-repeat:no-repeat;"></div>
+          <div class="cake-textcontainer">
+            <h3>Chocolate Cake</h3>
+            <ul>
+              <li>Difficulty: 2</li>
+              <li>Likes: 27</li>
+            </ul>
+          </div>
+        </div>
+        {{/cakes}}
     </div>
 </main>
 {{> modal/login-block}}

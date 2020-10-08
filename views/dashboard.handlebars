@@ -2,15 +2,13 @@
 
 <main>
     <div class="home-previews">
-      <div class="cake-preview cakes">
-        {{#each cakes}}
+        {{!-- {{#cakes}}
         <div class="cake-imgcontainer"><img src="{{cakeimageUrl}}"></div>
         <div class="cake-textcontainer">
           <p>{{name}}</p>
           <p>{{difficulty}}</p>
-          <p>{{cakeLikes}}</p>
         </div>
-        {{else}}
+        {{else}} --}}
         <div class="cake-preview-container" id="carrotcake">
           <div class="cake-imgcontainer" style="background-image:url('https://i.ibb.co/tC4TzgL/carrotcake.jpg');background-size:cover;background-repeat:no-repeat;background-position:center;"></div>
           <div class="cake-textcontainer">
@@ -41,7 +39,7 @@
             </ul>
           </div>
         </div>
-        {{/cakes}}
+        {{!-- {{/cakes}} --}}
     </div>
 </main>
 {{> modal/login-block}}

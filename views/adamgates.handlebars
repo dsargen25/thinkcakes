@@ -3,49 +3,44 @@
   <main>
     <div class="profile-self">
       <div class="profile-upsecA">
-        <div class="profile-img"></div>
+        <div class="profile-img" style="background-image:url('https://i.ibb.co/D8sLYHh/adamgates.jpg');background-size:cover;background-repeat:no-repeat;background-position:center;"></div>
         <div class="profile-contributions"></div>
       </div>
-
       <div class="profile-upsecB">
         <div class="profile-stats">
 
-              <div class="row">
-                <div class="group col-md-6">
-                  <p>{{userInfo.firstName}}</p>
-                </div>
-                <div class="group col-md-6">
-                  <p>{{userInfo.lastName}}</p>
-                </div>
+              <div class="profile-name">
+                <p>Adam Gates</p>
               </div>
 
-              <div class="row">
-                <div class="group col-md-6">
-                  <p>{{userInfo.email}}</p>
-                </div>
+              <div class="profile-email">
+                <p>adamgates@mail.com</p>
               </div>
 
               <div class="group aboutme-section">
                 <label>About Me: </label><br>
-                <p>"{{userInfo.aboutme}}"</p>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim arcu quis hendrerit molestie. Donec luctus vulputate magna, id efficitur turpis feugiat sollicitudin. Nunc eleifend enim et ligula faucibus, ut porttitor felis tempor. Nulla consequat sollicitudin viverra. Nulla aliquam faucibus lacus, quis porta justo tempus eu. Donec commodo nisl vel ante dignissim lobortis. Cras sodales magna vitae nulla tincidunt tristique. Nunc ut venenatis lectus. Curabitur ac risus leo. Nulla sed quam et nunc vestibulum accumsan non sit amet quam. Proin lobortis ut sapien sed suscipit. Aliquam feugiat dignissim sapien, quis dictum diam fermentum vitae."</p>
               </div>
         </div>
       </div>
 
       <div class="profile-lowsec">
-        <form>
-          <div class="comments-section">
-            <div class="comments">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, veritatis.</p>
-            </div>
-            <div class="form-group comment-submit">
-              <label for="exampleFormControlTextarea1">Add a Comment: </label><br>
-              <textarea class="form-control" id="profile-comment-add" rows="2"></textarea>
-              <button type="submit" id="submit-comment" class="btn btn-primary">Submit</button>
-            </div>
+        <h3 class="profile-cake-grid-title">My Cakes:</h3>
+        <div class="profile-cake-grid">
+
+        <div class="profile-cake-preview-container" id="chocolatecake">
+          <div class="profile-cake-imgcontainer" style="background-image:url('https://i.ibb.co/n7Ts0Wp/chocolatecake.jpg');background-size:cover;background-repeat:no-repeat;"></div>
+          <div class="profile-cake-textcontainer">
+            <h3>Chocolate Cake</h3>
+            <ul>
+              <li>Difficulty: 2</li>
+              <li>Likes: 27</li>
+            </ul>
           </div>
-        </form>
+        </div>
+
       </div>
+    </div>
 
     </div>
   </main>

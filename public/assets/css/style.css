@@ -125,8 +125,8 @@ header .header-box .header-button a {
       grid-template-areas: "a b" "c c";
   -ms-grid-columns: 1fr 3fr;
       grid-template-columns: 1fr 3fr;
-  -ms-grid-rows: 500px auto;
-      grid-template-rows: 500px auto;
+  -ms-grid-rows: 350px auto;
+      grid-template-rows: 350px auto;
   grid-gap: 15px;
 }
 
@@ -137,6 +137,22 @@ header .header-box .header-button a {
   background-color: #fff9f0;
 }
 
+.profile-self .profile-upsecA .profile-img {
+  width: 200px;
+  height: 200px;
+  margin-top: -10px;
+  padding-right: 10px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.profile-self #change-profile-image {
+  margin-top: 20px;
+}
+
 .profile-self .profile-upsecB {
   background-color: #fff9f0;
   -ms-grid-row: 1;
@@ -145,7 +161,20 @@ header .header-box .header-button a {
 }
 
 .profile-self .profile-upsecB .profile-stats {
-  margin: 1em;
+  margin: 10px 0;
+}
+
+.profile-self .profile-upsecB .profile-stats .profile-name {
+  font-size: 25px;
+  padding: .5em 0;
+}
+
+.profile-self .profile-upsecB .profile-stats .profile-email p {
+  font-size: 20px;
+}
+
+.profile-self .profile-upsecB .profile-stats .aboutme-section {
+  padding: 1em;
 }
 
 .profile-self .profile-lowsec {
@@ -156,29 +185,9 @@ header .header-box .header-button a {
   background-color: #fff9f0;
 }
 
-.profile-self .profile-lowsec .comments-section {
-  margin: auto;
-  background-color: #fff9f0;
-  width: 95%;
+.profile-self .profile-lowsec .profile-cake-grid-title {
   padding: 1em;
-}
-
-.profile-self .profile-lowsec .comments-section .comment-submit {
-  padding: 1em 0;
-}
-
-.profile-self .profile-lowsec .comments-section .comment-submit #submit-comment {
-  float: right;
-  margin: 1em 0;
-}
-
-.profile-self .profile-lowsec .comments-section .comments {
-  clear: both;
-  margin: 10px auto;
-  width: 100%;
-  height: 60px;
-  border-radius: .3em;
-  background-color: #fff9f0;
+  font-size: 20px;
 }
 
 .profile-self .profile-box {
@@ -209,8 +218,8 @@ header .header-box .header-button a {
       grid-template-areas: "d s" "c c";
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
-  -ms-grid-rows: 600px auto;
-      grid-template-rows: 600px auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   grid-gap: 15px;
 }
 
@@ -244,7 +253,7 @@ header .header-box .header-button a {
   position: absolute;
   top: 50px;
   z-index: 2;
-  background-color: grey;
+  background-color: burlywood;
   width: 800px;
   height: 90px;
   border-radius: 3em;
@@ -252,6 +261,13 @@ header .header-box .header-button a {
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cake-title h2 {
+  font-size: 2em;
+  color: white;
+  margin-left: 30px;
+  margin-top: 25px;
 }
 
 .cake-details {
@@ -263,14 +279,31 @@ header .header-box .header-button a {
   height: 100%;
 }
 
+.cake-details li {
+  font-size: 15px;
+  margin: 1em;
+}
+
+.cake-difficulty-rating {
+  font-size: 18px;
+  color: white;
+  margin-left: 35px;
+}
+
 .cake-stats {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: s;
-  text-align: right;
+  margin-left: 2em;
   padding-top: 150px;
   background-color: #fff9f0;
   height: 100%;
+}
+
+.cake-stats li {
+  font-size: 15px;
+  margin: .5em;
+  list-style: none;
 }
 
 .cake-comments {
@@ -279,6 +312,7 @@ header .header-box .header-button a {
   -ms-grid-column-span: 2;
   grid-area: c;
   background-color: #fff9f0;
+  padding: 1em;
 }
 
 .cake-comments .form-group {
@@ -292,6 +326,44 @@ header .header-box .header-button a {
   border-radius: .3em;
   background-color: #fff9f0;
   padding: 1em;
+}
+
+.cake-comments ul {
+  list-style-type: circle;
+}
+
+.cake-comments ul li {
+  margin: 1em 0;
+}
+
+.cake-creator-box {
+  z-index: 2;
+  padding: 1em;
+  margin-top: -67px;
+  margin-left: 420px;
+  width: 300px;
+  height: 75px;
+  background-color: white;
+  border-radius: 2em;
+}
+
+.cake-creator-box .creator-image {
+  float: left;
+  margin-top: -13px;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+
+.cake-creator-box .creator-details {
+  margin-top: -10px;
+  float: right;
+  width: 150px;
+}
+
+.cake-creator-box .creator-details .creator-subtitle {
+  margin-top: 5px;
+  font-size: 13px;
 }
 
 .cake-submission-container {
@@ -381,9 +453,59 @@ header .header-box .header-button a {
   color: #3f2700;
 }
 
+.cake-preview-container {
+  width: 100%;
+  height: 300px;
+  margin: 1em;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cake-preview-container .cake-imgcontainer {
+  background-color: grey;
+  height: 175px;
+  width: 90%;
+}
+
+.profile-cake-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.profile-cake-grid .profile-cake-preview-container {
+  background-color: white;
+  width: 200px;
+  height: 300px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.profile-cake-grid .profile-cake-preview-container .profile-cake-imgcontainer {
+  margin: auto;
+  margin-top: 20px;
+  width: 180px;
+  height: 200px;
+}
+
+.profile-cake-grid .profile-cake-preview-container .profile-cake-textcontainer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.profile-cake-grid .profile-cake-preview-container .profile-cake-textcontainer h3 {
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
 @media only screen and (max-width: 942px) {
   body {
-    min-width: 300px;
+    min-width: 560px;
   }
   header {
     width: 90%;
@@ -396,6 +518,9 @@ header .header-box .header-button a {
   }
   .cake-page {
     width: 90%;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "s" "d" "c";
   }
   .cake-submission-container {
     width: 90%;
@@ -416,6 +541,27 @@ header .header-box .header-button a {
   .cake-title {
     left: -30px;
     width: 100%;
+  }
+  .home-previews {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .cake-details {
+    padding-top: 0;
+  }
+  .cake-stats {
+    padding-top: 90px;
+  }
+  .cake-creator-box {
+    display: none;
+  }
+  .profile-self {
+    -ms-grid-rows: 500px auto;
+        grid-template-rows: 500px auto;
+  }
+  .profile-cake-grid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
 }
 /*# sourceMappingURL=style.css.map */

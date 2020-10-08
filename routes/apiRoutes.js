@@ -16,6 +16,7 @@ module.exports = (passport, db) => {
   // CAKE ROUTES
   router.get('/', AppController.getAllCakes);
   router.get('/cakes', AppController.getAllCakes);
+  router.get('/', AppController.getAllCakes);
   router.get('/cakes/:id', AppController.getSpecificCakes);
   router.get('/userCakes/:userId', AppController.getUserCakes);
   router.post('/cakes', AppController.createNewCake);

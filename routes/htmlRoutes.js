@@ -31,7 +31,26 @@ module.exports = (db) => {
     }
   });
 
-  // Load dashboard page
+  // // Load profile page
+  // router.get('/', (req, res) => {
+  //   if (req.isAuthenticated()) {
+  //     db.Cakes.findAll({
+  //       where: {
+  //         id: req.session.cakes.name
+  //       }
+  //     }).then(() => {
+  //       const cakes = {
+  //         userInfo: req.session.cakes,
+  //         isloggedin: req.isAuthenticated()
+  //       };
+  //       // console.log(user);
+  //       res.render('profile', cakes);
+  //     });
+  //   } else {
+  //     res.redirect('/');
+  //   }
+  // });
+
   router.get('/', (req, res) => {
     db.Cakes.findAll({ raw: true }).then(function (cakes) {
       if (req.isAuthenticated()) {
@@ -64,16 +83,94 @@ module.exports = (db) => {
     }
   });
 
-  // Load Cake Page
-  router.get('/cake-page', (req, res) => {
+  // // Load Cake Page
+  // router.get('/cake-page', (req, res) => {
+  //   if (req.isAuthenticated()) {
+  //     const user = {
+  //       user: req.session.passport.user,
+  //       isloggedin: req.isAuthenticated()
+  //     };
+  //     res.render('cake-page', user);
+  //   } else {
+  //     res.render('cake-page');
+  //   }
+  // });
+
+  // Load Carrot Cake Page
+  router.get('/cakes/carrotcake', (req, res) => {
     if (req.isAuthenticated()) {
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      res.render('cake-page', user);
+      res.render('carrotcake', user);
     } else {
-      res.render('cake-page');
+      res.render('carrotcake');
+    }
+  });
+
+  // Load Red Velvet Cake Page
+  router.get('/cakes/redvelvetcake', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('redvelvetcake', user);
+    } else {
+      res.render('redvelvetcake');
+    }
+  });
+
+  // Load Chocolate Cake Page
+  router.get('/cakes/chocolatecake', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('chocolatecake', user);
+    } else {
+      res.render('chocolatecake');
+    }
+  });
+
+  // Load Adam Gates Profile Page
+  router.get('/user-profiles/adamgates', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('adamgates', user);
+    } else {
+      res.render('adamgates');
+    }
+  });
+
+  // Load Mark Lee Profile Page
+  router.get('/user-profiles/marklee', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('marklee', user);
+    } else {
+      res.render('marklee');
+    }
+  });
+
+  // Load Carla Bean Profile Page
+  router.get('/user-profiles/carlabean', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('carlabean', user);
+    } else {
+      res.render('carlabean');
     }
   });
 

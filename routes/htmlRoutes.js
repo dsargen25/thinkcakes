@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 
 module.exports = (db) => {
@@ -22,7 +23,7 @@ module.exports = (db) => {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated()
         };
-        // console.log(user);
+        console.log(user);
         res.render('profile', user);
       });
     } else {
@@ -32,15 +33,22 @@ module.exports = (db) => {
 
   // Load dashboard page
   router.get('/', (req, res) => {
-    if (req.isAuthenticated()) {
-      const user = {
-        user: req.session.passport.user,
-        isloggedin: req.isAuthenticated()
-      };
-      res.render('dashboard', user);
-    } else {
-      res.render('dashboard');
-    }
+    db.Cakes.findAll({ raw: true }).then(function (cakes) {
+      if (req.isAuthenticated()) {
+        const user = {
+          user: req.session.passport.user,
+          isloggedin: req.isAuthenticated(),
+          cakes: cakes
+        };
+        console.log(user);
+        res.render('dashboard', user);
+      } else {
+        const user = {
+          cakes: cakes
+        };
+        res.render('dashboard', user);
+      }
+    });
   });
 
   // Load dashboard page

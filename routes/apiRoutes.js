@@ -14,6 +14,7 @@ module.exports = (passport, db) => {
   router.post('/user/confirm', AuthController.confirmAuth);
 
   // CAKE ROUTES
+  router.get('/', AppController.getAllCakes);
   router.get('/cakes', AppController.getAllCakes);
   router.get('/cakes/:id', AppController.getSpecificCakes);
   router.get('/userCakes/:userId', AppController.getUserCakes);

@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/arodrigu1/Project2.svg?branch=master)](https://travis-ci.com/arodrigu1/Project2)
 
-# Project 2 Starter with Auth
+# Think Cakes
 
 A simple starter project with Express, Handlebars, Sequelize, Passport and Local Auth.
 
